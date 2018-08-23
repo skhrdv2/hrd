@@ -115,15 +115,15 @@
       <label for="inputEmail4">บัตรประชาชน</label>
       <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
     </div>
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-1">
       <label for="inputPassword4">คำนำหน้า</label>
       <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
     </div>
-	<div class="form-group col-md-3">
+	<div class="form-group col-md-4">
       <label for="inputEmail4">ชื่อ</label>
       <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
     </div>
-	<div class="form-group col-md-3">
+	<div class="form-group col-md-4">
       <label for="inputEmail4">นามสกุล</label>
       <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
     </div>
@@ -133,15 +133,15 @@
     <label for="inputAddress">เบอร์โทร</label>
     <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
   </div>
-  <div class="form-group col-md-3">
+  <div class="form-group col-md-1">
     <label for="inputAddress2">เพศ</label>
     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
   </div>
-  <div class="form-group col-md-3">
+  <div class="form-group col-md-1">
     <label for="inputAddress2">หมู่เลือด</label>
     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
   </div>
-  <div class="form-group col-md-3">
+  <div class="form-group col-md-2">
     <label for="inputAddress2">วันเกิด</label>
     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
   </div>
@@ -166,19 +166,19 @@
   </div>
  </div>
  <div class="form-row">
-  <div class="form-group col-md-3">
+  <div class="form-group col-md-2">
     <label for="inputAddress">เชื้อชาติ</label>
     <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
   </div>
-  <div class="form-group col-md-3">
+  <div class="form-group col-md-2">
     <label for="inputAddress2">สัญชาติ</label>
     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
   </div>
-  <div class="form-group col-md-3">
+  <div class="form-group col-md-2">
     <label for="inputAddress2">ศาสนา</label>
     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
   </div>
-  <div class="form-group col-md-3">
+  <div class="form-group col-md-2">
     <label for="inputAddress2">ชื่อเรียก</label>
     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
   </div>
@@ -190,6 +190,10 @@
   </div>
   <div class="form-group col-md-3">
     <label for="inputAddress2">เงินประจำตำแหน่ง</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+  </div>
+  <div class="form-group col-md-2">
+    <label for="inputAddress2">สถานภาพ</label>
     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
   </div>
   <div class="form-group col-md-2">
@@ -205,15 +209,7 @@
     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
   </div>
  </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Check me out
-      </label>
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
+ 
 </form>
 								</div>
 						
@@ -230,33 +226,33 @@
 													<div class="row">
 													<form>
   <div class="form-row">
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-1">
       <label for="inputEmail4">บ้านเลขที่</label>
       <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
     </div>
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-1">
       <label for="inputPassword4">หมู่</label>
       <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
     </div>
-	<div class="form-group col-md-3">
+	<div class="form-group col-md-2">
       <label for="inputEmail4">ถนน</label>
       <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
     </div>
-	<div class="form-group col-md-3">
+	<div class="form-group col-md-2">
       <label for="inputEmail4">ตำบล</label>
       <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
     </div>
   </div>
   <div class="form-row">
-  <div class="form-group col-md-3">
+  <div class="form-group col-md-2">
     <label for="inputAddress">อำเภอ</label>
     <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
   </div>
-  <div class="form-group col-md-3">
+  <div class="form-group col-md-2">
     <label for="inputAddress2">จังหวัด</label>
     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
   </div>
-  <div class="form-group col-md-3">
+  <div class="form-group col-md-2">
     <label for="inputAddress2">รหัสไปรษณี</label>
     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
   </div>
