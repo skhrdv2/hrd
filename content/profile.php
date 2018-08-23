@@ -88,7 +88,7 @@
 											</ul>
 
 				<div class="tab-content no-border padding-24">
-						<div id="person_profile1" class="tab-pane in active">
+						<div id="profile" class="tab-pane in active">
 							<div class="row">
 								<div class="col-xs-12 col-sm-3 center">
 									<span class="profile-picture">
@@ -231,56 +231,53 @@
 													<form>
   <div class="form-row">
     <div class="form-group col-md-3">
-      <label for="inputEmail4">บัตรประชาชน</label>
+      <label for="inputEmail4">บ้านเลขที่</label>
       <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
     </div>
     <div class="form-group col-md-3">
-      <label for="inputPassword4">คำนำหน้า</label>
+      <label for="inputPassword4">หมู่</label>
       <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
     </div>
 	<div class="form-group col-md-3">
-      <label for="inputEmail4">ชื่อ</label>
+      <label for="inputEmail4">ถนน</label>
       <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
     </div>
 	<div class="form-group col-md-3">
-      <label for="inputEmail4">นามสกุล</label>
+      <label for="inputEmail4">ตำบล</label>
       <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
     </div>
   </div>
   <div class="form-row">
   <div class="form-group col-md-3">
-    <label for="inputAddress">เบอร์โทร</label>
+    <label for="inputAddress">อำเภอ</label>
     <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
   </div>
   <div class="form-group col-md-3">
-    <label for="inputAddress2">เพศ</label>
+    <label for="inputAddress2">จังหวัด</label>
     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
   </div>
   <div class="form-group col-md-3">
-    <label for="inputAddress2">หมู่เลือด</label>
+    <label for="inputAddress2">รหัสไปรษณี</label>
     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
   </div>
-  <div class="form-group col-md-3">
-    <label for="inputAddress2">วันเกิด</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
+  
  </div>
 
  <div class="form-row">
   <div class="form-group col-md-3">
-    <label for="inputAddress">อีเมลล์</label>
+    <label for="inputAddress">สังกัดกลุ่มงาน</label>
     <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
   </div>
   <div class="form-group col-md-3">
-    <label for="inputAddress2">ตำแหน่งหนังสือราชการ</label>
+    <label for="inputAddress2">แผนก</label>
     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
   </div>
   <div class="form-group col-md-3">
-    <label for="inputAddress2">รหัส ว.</label>
+    <label for="inputAddress2">ตำแหน่ง</label>
     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
   </div>
   <div class="form-group col-md-3">
-    <label for="inputAddress2">เลขที่ใบประกอบวิชาชีพ</label>
+    <label for="inputAddress2">ระดับ</label>
     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
   </div>
  </div>
