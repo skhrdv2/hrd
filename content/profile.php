@@ -1018,7 +1018,16 @@
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
 			jQuery(function($) {
-			
+			var person_id=<?php $_SESSION['person_id']; ?>
+			$.ajax({
+				url:"data/profile_data.php",
+				type:"POST",
+				data:{ person_id:person_id}
+
+			}).done(function(data){
+				//console.log(data);
+			});
+
 				//editables on first profile page
 				$.fn.editable.defaults.mode = 'inline';
 				$.fn.editableform.loading = "<div class='editableform-loading'><i class='ace-icon fa fa-spinner fa-spin fa-2x light-blue'></i></div>";
@@ -1454,5 +1463,6 @@
 					$('[class*=select2]').remove();
 				});
 			});
+
 		</script>
 
