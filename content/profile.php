@@ -40,18 +40,7 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
-								<div class="clearfix">
-									<div class="pull-left alert alert-success no-margin alert-dismissable">
-										<button type="button" class="close" data-dismiss="alert">
-											<i class="ace-icon fa fa-times"></i>
-										</button>
-
-										<i class="ace-icon fa fa-umbrella bigger-120 blue"></i>
-										Click on the image below or on profile fields to edit them ...
-									</div>
-
-									
-								</div>
+								
 
 								<div class="hr dotted"></div>
 
@@ -109,15 +98,16 @@
 								</div><!-- /.col -->
 
 								<div class="col-xs-12 col-sm-9">
+							
 								<form>
   <div class="form-row">
     <div class="form-group col-md-3 ">
       <label for="cid">บัตรประชาชน</label>
-      <input class="form-control"  id="cid">
+      <input id="cid" name="cid" class="form-control" value="" >
     </div>
     <div class="form-group col-md-3">
       <label for="pname">คำนำหน้า</label>
-	  <select  class="form-control"  id="pname">
+	  <select   class="form-control"  id="pname">
 	  <option  value="">โปรดระบุ</option>
 	  <?php $result=$Db->query('SELECT * FROM hrd_prename');
 		foreach($result AS $row){
@@ -160,6 +150,7 @@
   <div class="form-group col-md-2">
     <label for="bloodgroup">หมู่เลือด</label>
 	<select  class="form-control"  id="bloodgroup">
+	<option  value="">โปรดระบุ</option>
 	  <?php $result=$Db->query('SELECT * FROM hrd_blood_group');
 		foreach($result AS $row){
 			?>
@@ -197,8 +188,10 @@
  </div>
  <div class="form-row">
   <div class="form-group col-md-3">
-    <label for="citizenship_id">เชื้อชาติ</label>
+	<label for="citizenship_id">เชื้อชาติ</label>
+	
 	<select  class="form-control"  id="citizenship_id">
+	<option  value="">โปรดระบุ</option>
 	<?php $result=$Db->query('SELECT * FROM hrd_citizenship');
 		foreach($result AS $row){
 			?>
@@ -213,6 +206,7 @@
   <div class="form-group col-md-3">
     <label for="nationality_id">สัญชาติ</label>
 	<select  class="form-control"  id="nationality_id">
+	<option  value="">โปรดระบุ</option>
 	<?php $result=$Db->query('SELECT * FROM hrd_nationality');
 		foreach($result AS $row){
 			?>
@@ -226,6 +220,7 @@
   <div class="form-group col-md-3">
     <label for="religion_id">ศาสนา</label>
 	<select  class="form-control"  id="religion_id">
+	<option  value="">โปรดระบุ</option>
 	<?php $result=$Db->query('SELECT * FROM hrd_religion');
 		foreach($result AS $row){
 			?>
@@ -254,6 +249,7 @@
   <div class="form-group col-md-2">
     <label for="marry_status_id">สถานภาพ</label>
     <select  class="form-control"  id="marry_status_id">
+	<option  value="">โปรดระบุ</option>
 	<?php $result=$Db->query('SELECT * FROM hrd_marry_status');
 		foreach($result AS $row){
 			?>
@@ -1038,7 +1034,32 @@
 				data:{person_id:person_id}
 
 			}).done(function(data){
-				console.log(data);
+				//console.log(data);
+				var ard = JSON.parse(data);
+                       // $("#username").hide();
+                      //  $("#textuser").show();
+                        $("#cid").val(ard['cid']);
+                        $("#pname").val(ard['prename_id']);
+                    	$("#fname").val(ard['fname']);
+                        $("#lname").val(ard['lname']);
+						$("#phone_number").val(ard['phone_number']);
+                        $("#sex_id").val(ard['sex_id']);
+					    $("#blood_group_id").val(ard['blood_group_id']);
+                        $("#birthday").val(ard['birthday']);
+                        $("#email").val(ard['email']);
+
+                        
+						$("#citizenship_id").val(ard['citizenship_id']);
+						$("#nationality_id").val(ard['nationality_id']);
+						$("#religion_id").val(ard['religion_id']);
+						$("#nickname").val(ard['nickname']);
+						$("#salary").val(ard['salary']);
+						$("#salary_position").val(ard['salary_position']);
+
+								$("#marry_status_id").val(ard['marry_status_id']);
+								$("#facebook").val(ard['facebook']);
+								$("#line_id").val(ard['line_id']);
+								$("#fingle_id").val(ard['fingle_id']);
 			});
 			
 				//editables on first profile page
