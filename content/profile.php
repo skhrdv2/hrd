@@ -112,101 +112,169 @@
 								<form>
   <div class="form-row">
     <div class="form-group col-md-3 ">
-      <label for="inputCid">บัตรประชาชน</label>
-      <span class="form-control"  id="cid">3470100321128</span>
+      <label for="cid">บัตรประชาชน</label>
+      <input class="form-control"  id="cid">
     </div>
     <div class="form-group col-md-3">
-      <label for="inputPname">คำนำหน้า</label>
-	  <span class="form-control"  id="pname">นาย</span>
+      <label for="pname">คำนำหน้า</label>
+	  <select  class="form-control"  id="pname">
+	  <option  value="">โปรดระบุ</option>
+	  <?php $result=$Db->query('SELECT * FROM hrd_prename');
+		foreach($result AS $row){
+			?>
+			 <option value="<?=$row['prename_id'];?>"><?=$row['prename_name'];?></option>
+	<?php
+		}	  
+	  ?>
+	 
+	  </select>
     </div>
 	<div class="form-group col-md-3">
-      <label for="inputEmail4">ชื่อ</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+      <label for="fname">ชื่อ</label>
+      <input type="text" class="form-control" id="fname" >
     </div>
 	<div class="form-group col-md-3">
-      <label for="inputEmail4">นามสกุล</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+      <label for="lname">นามสกุล</label>
+      <input type="text" class="form-control" id="lname" >
     </div>
   </div>
   <div class="form-row">
   <div class="form-group col-md-4">
-    <label for="inputAddress">เบอร์โทร</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <label for="phone_number">เบอร์โทร</label>
+    <input type="text" class="form-control" id="phone_number">
   </div>
   <div class="form-group col-md-3">
-    <label for="inputAddress2">เพศ</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <label for="sex">เพศ</label>
+	<select  class="form-control"  id="sex">
+
+	  <?php $result=$Db->query('SELECT * FROM hrd_sex');
+		foreach($result AS $row){
+			?>
+			 <option value="<?=$row['sex_id'];?>"><?=$row['sex_name'];?></option>
+	<?php
+		}	  
+	  ?>
+	 
+	  </select>
   </div>
   <div class="form-group col-md-2">
-    <label for="inputAddress2">หมู่เลือด</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <label for="bloodgroup">หมู่เลือด</label>
+	<select  class="form-control"  id="bloodgroup">
+	  <?php $result=$Db->query('SELECT * FROM hrd_blood_group');
+		foreach($result AS $row){
+			?>
+			 <option value="<?=$row['blood_group_id'];?>"><?=$row['blood_group_name'];?></option>
+	<?php
+		}	  
+	  ?>
+	 
+	  </select>
+   
   </div>
   <div class="form-group col-md-3">
-    <label for="inputAddress2">วันเกิด</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <label for="birthday">วันเกิด</label>
+    <input type="text" class="form-control" id="birthday" >
   </div>
  </div>
 
  <div class="form-row">
   <div class="form-group col-md-3">
-    <label for="inputAddress">อีเมลล์</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <label for="email">อีเมลล์</label>
+    <input type="email" class="form-control" id="email">
   </div>
   <div class="form-group col-md-3">
-    <label for="inputAddress2">ตำแหน่งหนังสือราชการ</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <label for="book">ตำแหน่งหนังสือราชการ</label>
+    <input type="text" class="form-control" id="book" >
   </div>
   <div class="form-group col-md-3">
-    <label for="inputAddress2">รหัส ว.</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <label for="vcode">รหัส ว.</label>
+    <input type="text" class="form-control" id="vcode">
   </div>
   <div class="form-group col-md-3">
-    <label for="inputAddress2">เลขที่ใบประกอบวิชาชีพ</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <label for="">เลขที่ใบประกอบวิชาชีพ</label>
+    <input type="text" class="form-control" id="" >
   </div>
  </div>
  <div class="form-row">
   <div class="form-group col-md-3">
-    <label for="inputAddress">เชื้อชาติ</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <label for="citizenship_id">เชื้อชาติ</label>
+	<select  class="form-control"  id="citizenship_id">
+	<?php $result=$Db->query('SELECT * FROM hrd_citizenship');
+		foreach($result AS $row){
+			?>
+			 <option value="<?=$row['citizenship_id'];?>"><?=$row['citizenship_name'];?></option>
+	<?php
+		}	  
+	  ?>
+	 
+	  </select>
+   
   </div>
   <div class="form-group col-md-3">
-    <label for="inputAddress2">สัญชาติ</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <label for="nationality_id">สัญชาติ</label>
+	<select  class="form-control"  id="nationality_id">
+	<?php $result=$Db->query('SELECT * FROM hrd_nationality');
+		foreach($result AS $row){
+			?>
+			 <option value="<?=$row['nationality_id'];?>"><?=$row['nationality_name'];?></option>
+	<?php
+		}	  
+	  ?>
+	 
+	  </select>
   </div>
   <div class="form-group col-md-3">
-    <label for="inputAddress2">ศาสนา</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <label for="religion_id">ศาสนา</label>
+	<select  class="form-control"  id="religion_id">
+	<?php $result=$Db->query('SELECT * FROM hrd_religion');
+		foreach($result AS $row){
+			?>
+			 <option value="<?=$row['religion_id'];?>"><?=$row['religion_name'];?></option>
+	<?php
+		}	  
+	  ?>
+	 
+	  </select>
+   
   </div>
   <div class="form-group col-md-3">
-    <label for="inputAddress2">ชื่อเรียก</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <label for="nickname">ชื่อเรียก</label>
+    <input type="text" class="form-control" id="nickname" >
   </div>
  </div>
  <div class="form-row">
   <div class="form-group col-md-3">
-    <label for="inputAddress">เงินเดือน</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <label for="salary">เงินเดือน</label>
+    <input type="text" class="form-control" id="salary">
   </div>
   <div class="form-group col-md-3">
-    <label for="inputAddress2">เงินประจำตำแหน่ง</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <label for="money_position">เงินประจำตำแหน่ง</label>
+    <input type="text" class="form-control" id="money_position" >
   </div>
   <div class="form-group col-md-2">
-    <label for="inputAddress2">สถานภาพ</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <label for="marry_status_id">สถานภาพ</label>
+    <select  class="form-control"  id="marry_status_id">
+	<?php $result=$Db->query('SELECT * FROM hrd_marry_status');
+		foreach($result AS $row){
+			?>
+			 <option value="<?=$row['marry_status_id'];?>"><?=$row['marry_status_name'];?></option>
+	<?php
+		}	  
+	  ?>
+	 
+	  </select>
   </div>
   <div class="form-group col-md-2">
-    <label for="inputAddress2">facebook</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <label for="facebook">facebook</label>
+    <input type="text" class="form-control" id="facebook">
   </div>
   <div class="form-group col-md-2">
-    <label for="inputAddress2">Line Id</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <label for="line_id">Line Id</label>
+    <input type="text" class="form-control" id="line_id">
   </div>
   <div class="form-group col-md-2">
-    <label for="inputAddress2">fingle Id</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <label for="fingle_id">fingle Id</label>
+    <input type="text" class="form-control" id="fingle_id" >
   </div>
  </div>
  
@@ -227,96 +295,39 @@
 													<form>
   <div class="form-row">
     <div class="form-group col-md-1">
-      <label for="inputEmail4">บ้านเลขที่</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+      <label for="address_no">บ้านเลขที่</label>
+      <input type="text" class="form-control" id="address_no">
     </div>
     <div class="form-group col-md-1">
-      <label for="inputPassword4">หมู่</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+      <label for="moo">หมู่</label>
+      <input type="password" class="form-control" id="moo" >
     </div>
 	<div class="form-group col-md-2">
-      <label for="inputEmail4">ถนน</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+      <label for="road_name">ถนน</label>
+      <input type="text" class="form-control" id="road_name" >
     </div>
 	<div class="form-group col-md-2">
-      <label for="inputEmail4">ตำบล</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+      <label for="tumbon_id">ตำบล</label>
+      <input type="text" class="form-control" id="tumbon_id" >
     </div>
   </div>
   <div class="form-row">
   <div class="form-group col-md-2">
-    <label for="inputAddress">อำเภอ</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <label for="amphur_id">อำเภอ</label>
+    <input type="text" class="form-control" id="amphur_id">
   </div>
   <div class="form-group col-md-2">
-    <label for="inputAddress2">จังหวัด</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <label for="province_id">จังหวัด</label>
+    <input type="text" class="form-control" id="province_id">
   </div>
   <div class="form-group col-md-2">
-    <label for="inputAddress2">รหัสไปรษณี</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <label for="zipcode">รหัสไปรษณี</label>
+    <input type="text" class="form-control" id="zipcode">
   </div>
   
  </div>
 
- <div class="form-row">
-  <div class="form-group col-md-3">
-    <label for="inputAddress">สังกัดกลุ่มงาน</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="inputAddress2">แผนก</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="inputAddress2">ตำแหน่ง</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="inputAddress2">ระดับ</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
- </div>
- <div class="form-row">
-  <div class="form-group col-md-3">
-    <label for="inputAddress">เชื้อชาติ</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="inputAddress2">สัญชาติ</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="inputAddress2">ศาสนา</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="inputAddress2">ชื่อเรียก</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
- </div>
- <div class="form-row">
-  <div class="form-group col-md-3">
-    <label for="inputAddress">เงินเดือน</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="inputAddress2">เงินประจำตำแหน่ง</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
-  <div class="form-group col-md-2">
-    <label for="inputAddress2">facebook</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
-  <div class="form-group col-md-2">
-    <label for="inputAddress2">Line Id</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
-  <div class="form-group col-md-2">
-    <label for="inputAddress2">fingle Id</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
- </div>
+ 
   <div class="form-group">
     <div class="form-check">
       <input class="form-check-input" type="checkbox" id="gridCheck">
@@ -1017,17 +1028,19 @@
 
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
+		
 			jQuery(function($) {
-			var person_id=<?php $_SESSION['person_id']; ?>
+				
+				var person_id = '<?=$_SESSION['person_id'];?>' ;
 			$.ajax({
 				url:"data/profile_data.php",
 				type:"POST",
-				data:{ person_id:person_id}
+				data:{person_id:person_id}
 
 			}).done(function(data){
-				//console.log(data);
+				console.log(data);
 			});
-
+			
 				//editables on first profile page
 				$.fn.editable.defaults.mode = 'inline';
 				$.fn.editableform.loading = "<div class='editableform-loading'><i class='ace-icon fa fa-spinner fa-spin fa-2x light-blue'></i></div>";
@@ -1036,7 +1049,7 @@
 				
 				//editables 
 				
-				//text editable
+				/*text editable
 			    $('#cid')
 				.editable({
 					type: 'text',
@@ -1047,7 +1060,7 @@
 				.editable({
 					type: 'text',
 					name: 'pname'		
-			    });
+			    });*/
 				
 				//select2 editable
 				var countries = [];

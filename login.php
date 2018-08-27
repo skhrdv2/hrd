@@ -340,6 +340,7 @@ $Db = new MySqlConn;
             	WHERE h.username='".$_POST['username']."' AND h.password ='".md5($_POST['password'])." '");
             foreach ($sql AS $row) {
                 $_SESSION['loginname'] = $row['username'];
+                $_SESSION['person_id'] = $row['person_id'];
                 $_SESSION['fname'] = $row['fname'];
                 $_SESSION['lname'] = $row['lname'];
                 $_SESSION['fullname'] = $row['fullname'];
