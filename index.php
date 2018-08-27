@@ -29,9 +29,10 @@ $Db->access();
 <link rel="stylesheet" href="assets/css/jquery-ui.custom.min.css" />
 		<link rel="stylesheet" href="assets/css/jquery.gritter.min.css" />
 		<link rel="stylesheet" href="assets/css/select2.min.css" />
-		<link rel="stylesheet" href="assets/css/bootstrap-datepicker3.min.css" />
+		
 		<link rel="stylesheet" href="assets/css/bootstrap-editable.min.css" />
         <link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+        <link rel="stylesheet" href="includes/bootstrap-datepicker-1.6.4/css/bootstrap-datepicker3.min.css">
         <!--[if lte IE 9]>
                 <link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet" />
         <![endif]-->
@@ -1026,7 +1027,10 @@ $Db->access();
                                 document.write("<script src='assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
         </script>
         <script src="assets/js/bootstrap.min.js"></script>
-
+        <script src="includes/bootstrap-datepicker-1.6.4/js/bootstrap-datepicker.min.js"></script>
+        <script src="includes/bootstrap-datepicker-1.6.4/js/bootstrap-datepicker-th.min.js"></script>
+        <script src="includes/bootstrap-datepicker/js/locales/bootstrap-datepicker.th.js"></script>
+     
         <!-- page specific plugin scripts -->
 
         <!--[if lte IE 8]>
@@ -1043,7 +1047,7 @@ $Db->access();
         <!-- ace scripts -->
         <script src="assets/js/ace-elements.min.js"></script>
         <script src="assets/js/ace.min.js"></script>
-
+        
         <!-- inline scripts related to this page -->
         <script type="text/javascript">
                             jQuery(function ($) {
@@ -1268,6 +1272,21 @@ $Db->access();
                                 });
 
                             })
+$('.input-daterange').datepicker({
+    autoclose: true,
+    language: "th-th",
+    format: 'yyyy-mm-dd',
+    todayHighlight: true,
+   
+
+});
+$('.datepicker').datepicker({
+    autoclose: true,
+    language: "th-th",
+    format: 'dd-mm-yyyy',
+    todayHighlight: true,
+    
+});     
         </script>
     </body>
 </html>

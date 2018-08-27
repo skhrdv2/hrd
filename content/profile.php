@@ -136,7 +136,7 @@
   <div class="form-group col-md-3">
     <label for="sex">เพศ</label>
 	<select  class="form-control"  id="sex">
-
+	<option  value="">โปรดระบุ</option>
 	  <?php $result=$Db->query('SELECT * FROM hrd_sex');
 		foreach($result AS $row){
 			?>
@@ -162,9 +162,10 @@
 	  </select>
    
   </div>
-  <div class="form-group col-md-3">
+  <div class="form-group col-md-3 ">
     <label for="birthday">วันเกิด</label>
-    <input type="text" class="form-control" id="birthday" >
+	<input type="text" class="form-control datepicker " id="birthday" >
+	
   </div>
  </div>
 
@@ -240,7 +241,7 @@
  <div class="form-row">
   <div class="form-group col-md-3">
     <label for="salary">เงินเดือน</label>
-    <input type="text" class="form-control" id="salary">
+    <input type="text" class="form-control" id="salary" readonly>
   </div>
   <div class="form-group col-md-3">
     <label for="money_position">เงินประจำตำแหน่ง</label>
@@ -1061,6 +1062,9 @@
 								$("#line_id").val(ard['line_id']);
 								$("#fingle_id").val(ard['fingle_id']);
 			});
+
+
+});
 			
 				//editables on first profile page
 				$.fn.editable.defaults.mode = 'inline';
@@ -1491,7 +1495,7 @@
 				});
 				*/
 				
-				
+			
 				/////////////////////////////////////
 				$(document).one('ajaxloadstart.page', function(e) {
 					//in ajax mode, remove remaining elements before leaving page
