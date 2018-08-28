@@ -1077,7 +1077,7 @@
 
 			}).done(function(data){
 
-				$("#province_id").append("<option value='47'>dddd </option>");
+				$("#province_id").append("<option value='47'>สกลนคร </option>");
 				
 			});
 
