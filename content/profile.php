@@ -184,7 +184,7 @@
 	<div class="form-group col-md-2">
       <label for="tumbon_id">ตำบล</label>
 	  <select  class="form-control select2"  id="tumbon_id">
-	<option  value="">โปรดระบุ</option>
+		<option  value="">โปรดระบุ</option>
 	
 	  </select>
     </div>
@@ -194,6 +194,14 @@
     <label for="amphur_id">อำเภอ</label>
 	<select  class="form-control select2"  id="amphur_id">
 	<option  value="">โปรดระบุ</option>
+	<?php $result=$Db->query('SELECT * FROM hrd_amphur');
+		foreach($result AS $row){
+			?>
+			 <option value="<?=$row['amphur_id'];?>"><?=$row['amphur_name'];?></option>
+	<?php
+		}	  
+	  ?>
+	 
 	  </select>
   </div>
   <div class="form-group col-md-2">
@@ -1068,22 +1076,54 @@
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
 		
-			jQuery(function($) {
+		$(function(){
+			
 				$.ajax({
-				url:"data/province_ch_data.php",
-				type:"POST",
-				datatype:"json",
-				data:{show_province:'show_province'}
-
-			}).done(function(data){
-
-				$("#province_id").append("<option value='47'>สกลนคร </option>");
+					url:"data/province_ch_data.php",
+					dataType: "json",
+					data:{show_province:'show_province'}, 
+					success:function(data){
+						console.log(data);
+						$.each(data, function( index, value ) {
+							  $("#province_id").append("<option value='"+ value.id +"'> " + value.name + "</option>");
+						});
+					}
+				});
 				
-			});
+				 //แสดงข้อมูล อำเภอ  โดยใช้คำสั่ง change จะทำงานกรณีมีการเปลี่ยนแปลงที่ #province
+				 $("#province_id").change(function(){
 
+ //กำหนดให้ ตัวแปร province มีค่าเท่ากับ ค่าของ #province ที่กำลังถูกเลือกในขณะนั้น
+ var province_id = $(this).val();
+ 
+ $.ajax({
+					url:"data/province_ch_data.php",
+					dataType: "json",
+					data:{province_id:province_id}, 
+					success:function(data){
+						  //กำหนดให้ข้อมูลใน #amphur เป็นค่าว่าง
+						  $("#amphur_id").text("");
+						  console.log(data);
+						$.each(data, function( index, value ) {
+							  $("#amphur_id").append("<option value='"+ value.id +"'> " + value.name + "</option>");
+						});
+					}
+				});
 
-
- //ดึงข้อมูล province จากไฟล์ get_data.php
+});
+				$('.select2').select2({  //เปิดใช้งาน select2
+        			createTag: function (params) {
+            		var term = $.trim(params.term);
+            			if (term === '') {
+                		return null;   }
+            return {
+                id: term,
+                text:term,
+                newTag: true // add additional parameters
+                   }
+            	}
+    			}); //ปิด tag select2
+ 
  
 			var person_id = '<?=$_SESSION['person_id'];?>' ;
 			$.ajax({
@@ -1127,6 +1167,7 @@
 								$("#fingle_id").val(ard['fingle_id']);
 								
 			
+			
 			}); //เรียกข้อมูลออกมาแสดง
 
 
@@ -1134,9 +1175,9 @@
 
 
 	
-               
+               //ปิดการใช้งาน editable ก่อน
 				//editables on first profile page
-				$.fn.editable.defaults.mode = 'inline';
+			/*	$.fn.editable.defaults.mode = 'inline';
 				$.fn.editableform.loading = "<div class='editableform-loading'><i class='ace-icon fa fa-spinner fa-spin fa-2x light-blue'></i></div>";
 			    $.fn.editableform.buttons = '<button type="submit" class="btn btn-info editable-submit"><i class="ace-icon fa fa-check"></i></button>'+
 			                                '<button type="button" class="btn editable-cancel"><i class="ace-icon fa fa-times"></i></button>';    
@@ -1157,7 +1198,7 @@
 			    });*/
 				
 				//select2 editable
-				var countries = [];
+		/*		var countries = [];
 			    $.each({ "CA": "Canada", "IN": "India", "NL": "Netherlands", "TR": "Turkey", "US": "United States"}, function(k, v) {
 			        countries.push({id: k, text: v});
 			    });
@@ -1209,7 +1250,7 @@
 						*/
 						
 						//so we remove it altogether and create a new element
-						var city = $('#city').removeAttr('id').get(0);
+			/*			var city = $('#city').removeAttr('id').get(0);
 						$(city).clone().attr('id', 'city').text('Select City').editable({
 							type: 'select2',
 							value : null,
@@ -1400,7 +1441,7 @@
 				*/
 			
 				//another option is using modals
-				$('#avatar2').on('click', function(){
+			/*	$('#avatar2').on('click', function(){
 					var modal = 
 					'<div class="modal fade">\
 					  <div class="modal-dialog">\
@@ -1566,109 +1607,24 @@
 				
 			
 				/////////////////////////////////////
-				$(document).one('ajaxloadstart.page', function(e) {
+		/*		$(document).one('ajaxloadstart.page', function(e) {
 					//in ajax mode, remove remaining elements before leaving page
 					try {
 						$('.editable').editable('destroy');
 					} catch(e) {}
 					$('[class*=select2]').remove();
 				});
-			});
+			}); */
 
 //province
 
                 
                 //เรียกใช้งาน Select2
                // $(".select2-single").select2();
-			   $('.select2').select2({
-        createTag: function (params) {
-            var term = $.trim(params.term);
-
-            if (term === '') {
-                return null;
-            }
-
-            return {
-                id: term,
-                text: term,
-                newTag: true // add additional parameters
-            }
-        }
-    });
-               
+			
                 
-                
-                //แสดงข้อมูล อำเภอ  โดยใช้คำสั่ง change จะทำงานกรณีมีการเปลี่ยนแปลงที่ #province
-                $("#province").change(function(){
- 
-                    //กำหนดให้ ตัวแปร province มีค่าเท่ากับ ค่าของ #province ที่กำลังถูกเลือกในขณะนั้น
-                    var province_id = $(this).val();
-                    
-                    $.ajax({
-                        url:"get_data.php",
-                        dataType: "json",//กำหนดให้มีรูปแบบเป็น Json
-                        data:{province_id:province_id},//ส่งค่าตัวแปร province_id เพื่อดึงข้อมูล อำเภอ ที่มี province_id เท่ากับค่าที่ส่งไป
-                        success:function(data){
-                            
-                            //กำหนดให้ข้อมูลใน #amphur เป็นค่าว่าง
-                            $("#amphur").text("");
-                            
-                            //วนลูปแสดงข้อมูล ที่ได้จาก ตัวแปร data  
-                            $.each(data, function( index, value ) {
-                                
-                                //แทรก Elements ข้อมูลที่ได้  ใน id amphur  ด้วยคำสั่ง append
-                                  $("#amphur").append("<option value='"+ value.id +"'> " + value.name + "</option>");
-                            });
-                        }
-                    });
- 
-                });
-                
-                //แสดงข้อมูลตำบล โดยใช้คำสั่ง change จะทำงานกรณีมีการเปลี่ยนแปลงที่  #amphur
-                $("#amphur").change(function(){
-                    
-                    //กำหนดให้ ตัวแปร amphur_id มีค่าเท่ากับ ค่าของ  #amphur ที่กำลังถูกเลือกในขณะนั้น
-                    var amphur_id = $(this).val();
-                    
-                    $.ajax({
-                        url:"get_data.php",
-                        dataType: "json",//กำหนดให้มีรูปแบบเป็น Json
-                        data:{amphur_id:amphur_id},//ส่งค่าตัวแปร amphur_id เพื่อดึงข้อมูล ตำบล ที่มี amphur_id เท่ากับค่าที่ส่งไป
-                        success:function(data){
-                            
-                              //กำหนดให้ข้อมูลใน #district เป็นค่าว่าง
-                              $("#district").text("");
-                              
-                            //วนลูปแสดงข้อมูล ที่ได้จาก ตัวแปร data  
-                            $.each(data, function( index, value ) {
-                                
-                              //แทรก Elements ข้อมูลที่ได้  ใน id district  ด้วยคำสั่ง append
-                              $("#district").append("<option value='" + value.id + "'> " + value.name + "</option>");
-                              
-                            });
-                        }
-                    });
-                    
-                });
-                
-                //คำสั่ง change จะทำงานกรณีมีการเปลี่ยนแปลงที่  #district 
-                $("#district").change(function(){
-                    
-                    //นำข้อมูลรายการ จังหวัด ที่เลือก มาใส่ไว้ในตัวแปร province
-                    var province = $("#province option:selected").text();
-                    
-                    //นำข้อมูลรายการ อำเภอ ที่เลือก มาใส่ไว้ในตัวแปร amphur
-                    var amphur = $("#amphur option:selected").text();
-                    
-                    //นำข้อมูลรายการ ตำบล ที่เลือก มาใส่ไว้ในตัวแปร district
-                    var district = $("#district option:selected").text();
-                    
-                    //ใช้คำสั่ง alert แสดงข้อมูลที่ได้
-                    alert("คุณได้เลือก :  จังหวัด : " + province + " อำเภอ : "+ amphur + "  ตำบล : " + district );
-                    
-                });
-                
-                
+             
+			});         
          
 		</script>
 
