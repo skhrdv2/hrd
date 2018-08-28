@@ -28,7 +28,7 @@ $Db->access();
 <!-- page specific plugin styles -->
 <link rel="stylesheet" href="assets/css/jquery-ui.custom.min.css" />
 		<link rel="stylesheet" href="assets/css/jquery.gritter.min.css" />
-		<link rel="stylesheet" href="assets/css/select2.min.css" />
+		<link href="includes/select2-4.0.6/css/select2.min.css" rel="stylesheet">
 		
 		<link rel="stylesheet" href="assets/css/bootstrap-editable.min.css" />
         <link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
@@ -1029,7 +1029,7 @@ $Db->access();
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="includes/bootstrap-datepicker-1.6.4/js/bootstrap-datepicker.min.js"></script>
         <script src="includes/bootstrap-datepicker-1.6.4/js/bootstrap-datepicker-th.min.js"></script>
-        <script src="includes/bootstrap-datepicker/js/locales/bootstrap-datepicker.th.js"></script>
+        <script src="includes/bootstrap-datepicker-1.6.4/locales/bootstrap-datepicker.th.min.js"></script>
      
         <!-- page specific plugin scripts -->
 
@@ -1047,7 +1047,7 @@ $Db->access();
         <!-- ace scripts -->
         <script src="assets/js/ace-elements.min.js"></script>
         <script src="assets/js/ace.min.js"></script>
-        
+        <script src="includes/select2-4.0.6/js/select2.min.js"></script>
         <!-- inline scripts related to this page -->
         <script type="text/javascript">
                             jQuery(function ($) {
@@ -1286,7 +1286,8 @@ $('.datepicker').datepicker({
     format: 'dd-mm-yyyy',
     todayHighlight: true,
     
-});     
+});    
+ 
         </script>
     </body>
 </html>
