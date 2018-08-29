@@ -194,13 +194,7 @@
     <label for="amphur_id">อำเภอ</label>
 	<select  class="form-control select2"  id="amphur_id">
 	<option  value="">โปรดระบุ</option>
-	<?php $result=$Db->query('SELECT * FROM hrd_amphur');
-		foreach($result AS $row){
-			?>
-			 <option value="<?=$row['amphur_id'];?>"><?=$row['amphur_name'];?></option>
-	<?php
-		}	  
-	  ?>
+	
 	 
 	  </select>
   </div>
@@ -208,6 +202,7 @@
     <label for="province_id">จังหวัด</label>
 	<select  class="form-control select2"  id="province_id">
 	<option  value="">โปรดระบุ</option> 
+	
 	  </select>
   </div>
   <div class="form-group col-md-2">
@@ -1075,10 +1070,9 @@
 
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
-		
-		$(function(){
 			
-				$.ajax({
+		$.ajax({   
+		
 					url:"data/province_ch_data.php",
 					dataType: "json",
 					data:{show_province:'show_province'}, 
@@ -1090,49 +1084,15 @@
 					}
 				});
 				
-				 //แสดงข้อมูล อำเภอ  โดยใช้คำสั่ง change จะทำงานกรณีมีการเปลี่ยนแปลงที่ #province
-				 $("#province_id").change(function(){
-
- //กำหนดให้ ตัวแปร province มีค่าเท่ากับ ค่าของ #province ที่กำลังถูกเลือกในขณะนั้น
- var province_id = $(this).val();
- 
- $.ajax({
-					url:"data/province_ch_data.php",
-					dataType: "json",
-					data:{province_id:province_id}, 
-					success:function(data){
-						  //กำหนดให้ข้อมูลใน #amphur เป็นค่าว่าง
-						  $("#amphur_id").text("");
-						  console.log(data);
-						$.each(data, function( index, value ) {
-							  $("#amphur_id").append("<option value='"+ value.id +"'> " + value.name + "</option>");
-						});
-					}
-				});
-
-});
-				$('.select2').select2({  //เปิดใช้งาน select2
-        			createTag: function (params) {
-            		var term = $.trim(params.term);
-            			if (term === '') {
-                		return null;   }
-            return {
-                id: term,
-                text:term,
-                newTag: true // add additional parameters
-                   }
-            	}
-    			}); //ปิด tag select2
- 
- 
+			
+		$(function(){
+			
 			var person_id = '<?=$_SESSION['person_id'];?>' ;
 			$.ajax({
 				url:"data/profile_data.php",
 				type:"POST",
-				data:{person_id:person_id}
-
-			}).done(function(data){
-			
+				data:{person_id:person_id},
+				success:function(data){
 				//console.log(data);
 				var ard = JSON.parse(data);
                        // $("#username").hide();
@@ -1166,15 +1126,40 @@
 								$("#line_id").val(ard['line_id']);
 								$("#fingle_id").val(ard['fingle_id']);
 								
-			
+			/*	var province = $("#province_id option:selected").val();
+			alert(province);	*/		
+					
+			}	
 			
 			}); //เรียกข้อมูลออกมาแสดง
 
-
- 
-
-
 	
+ 
+});
+
+				 //แสดงข้อมูล อำเภอ  โดยใช้คำสั่ง change จะทำงานกรณีมีการเปลี่ยนแปลงที่ #province
+				 $("#province_id").change(function(){
+
+//กำหนดให้ ตัวแปร province มีค่าเท่ากับ ค่าของ #province ที่กำลังถูกเลือกในขณะนั้น
+var province_id = $(this).val();
+
+$.ajax({
+				   url:"data/province_ch_data.php",
+				   dataType: "json",
+				   data:{province_id:province_id}, 
+				   success:function(data){
+						 //กำหนดให้ข้อมูลใน #amphur เป็นค่าว่าง
+						 $("#amphur_id").text("");
+					//	 console.log(data);
+					   $.each(data, function( index, value ) {
+							 $("#amphur_id").append("<option value='"+ value.id +"'> " + value.name + "</option>");
+					   });
+				   }
+			   });
+
+});
+		   
+
                //ปิดการใช้งาน editable ก่อน
 				//editables on first profile page
 			/*	$.fn.editable.defaults.mode = 'inline';
@@ -1622,9 +1607,7 @@
                 //เรียกใช้งาน Select2
                // $(".select2-single").select2();
 			
-                
-             
-			});         
+              
          
 		</script>
 

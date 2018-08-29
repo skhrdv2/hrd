@@ -11,7 +11,8 @@ $result=$Db->query($sql);
     //เก็บข้อมูลที่ได้ไว้ในตัวแปร Array 
     $json_result[] = [
         'id'=>$row['province_id'],
-        'name'=>$row['province_name_th'],
+		'name'=>$row['province_name_th'],
+		
     ];
    
    }
