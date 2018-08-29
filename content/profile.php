@@ -1070,22 +1070,7 @@
 
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
-			
-		$.ajax({   
-		
-					url:"data/province_ch_data.php",
-					dataType: "json",
-					data:{show_province:'show_province'}, 
-					success:function(data){
-						console.log(data);
-						$.each(data, function( index, value ) {
-							  $("#province_id").append("<option value='"+ value.id +"'> " + value.name + "</option>");
-						});
-					}
-				});
-				
-			
-		$(function(){
+			$(document).ready(function(){
 			
 			var person_id = '<?=$_SESSION['person_id'];?>' ;
 			$.ajax({
@@ -1125,17 +1110,44 @@
 								$("#facebook").val(ard['facebook']);
 								$("#line_id").val(ard['line_id']);
 								$("#fingle_id").val(ard['fingle_id']);
-								
-			/*	var province = $("#province_id option:selected").val();
-			alert(province);	*/		
+					
+				
 					
 			}	
 			
 			}); //เรียกข้อมูลออกมาแสดง
 
-	
- 
 });
+
+
+		$.ajax({    //แสดงชื่อจังหวัดใน DB
+		
+					url:"data/province_ch_data.php",
+					dataType: "json",
+					data:{show_province:'show_province'}, 
+					success:function(data){
+					//	console.log(data);
+						$.each(data, function( index, value ) {
+							  $("#province_id").append("<option value='"+ value.id +"'> " + value.name + "</option>");
+						});
+					}
+				});
+				var person_id = '<?=$_SESSION['person_id'];?>' ;  //แสดงชื่ออำเภอใน DB
+				$.ajax({
+				   url:"data/province_ch_data.php",
+				   dataType: "json",
+				   data:{person_id:person_id}, 
+				   success:function(data){
+					   console.log(data);
+						 //กำหนดให้ข้อมูลใน #amphur เป็นค่าว่าง
+						 $("#amphur_id").text("");
+					//	 console.log(data);
+					   $.each(data, function( index, value ) {
+							 $("#amphur_id").append("<option value='"+ value.id +"'> " + value.name + "</option>");
+					   });
+				   }
+			   });
+		
 
 				 //แสดงข้อมูล อำเภอ  โดยใช้คำสั่ง change จะทำงานกรณีมีการเปลี่ยนแปลงที่ #province
 				 $("#province_id").change(function(){
