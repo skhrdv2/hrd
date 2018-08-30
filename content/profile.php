@@ -1,7 +1,5 @@
 
 		<div class="main-container ace-save-state" id="main-container">
-			
-			
 			<div class="main-content">
 				<div class="main-content-inner">
 					<div class="breadcrumbs ace-save-state" id="breadcrumbs">
@@ -16,15 +14,11 @@
 							</li>
 							<li class="active">User Profile</li>
 						</ul><!-- /.breadcrumb -->
-
-						
 					</div>
 
 					<div class="page-content">
 						<div class="ace-settings-container" id="ace-settings-container">
-							
-
-						
+					
 						</div><!-- /.ace-settings-container -->
 
 						<div class="page-header">
@@ -99,24 +93,20 @@
 								</div><!-- /.col -->
 
 								<div class="col-xs-12 col-sm-9">
-							
-								<form>
-  <div class="form-row">
-    <div class="form-group col-md-3 ">
+							<form>
+  	<div class="row">
+    <div class="form-group col-md-4 ">
       <label for="cid">บัตรประชาชน</label>
       <input id="cid" name="cid" class="form-control" value="" >
     </div>
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-2">
       <label for="pname">คำนำหน้า</label>
 	  <select   class="form-control"  id="pname">
 	  <option  value="">โปรดระบุ</option>
-	  <?php $result=$Db->query('SELECT * FROM hrd_prename');
-		foreach($result AS $row){
-			?>
-			 <option value="<?=$row['prename_id'];?>"><?=$row['prename_name'];?></option>
-	<?php
-		}	  
-	  ?>
+	  	<?php $result=$Db->query('SELECT * FROM hrd_prename');
+			foreach($result AS $row){ ?>
+			 	<option value="<?=$row['prename_id'];?>"><?=$row['prename_name'];?></option>
+		<?php }	 ?>
 	 
 	  </select>
     </div>
@@ -129,14 +119,14 @@
       <input type="text" class="form-control" id="lname" >
     </div>
   </div>
-  <div class="form-row">
-  <div class="form-group col-md-4">
-    <label for="phone_number">เบอร์โทร</label>
-    <input type="text" class="form-control" id="phone_number">
-  </div>
+  <div class="row">
   <div class="form-group col-md-3">
+    <label for="birthday">วันเกิด</label>
+	<input type="text" class="form-control datepicker " id="birthday" >
+  </div>
+  <div class="form-group col-md-2">
     <label for="sex">เพศ</label>
-	<select  class="form-control"  id="sex">
+	<select  class="form-control"  id="sex_id">
 	<option  value="">โปรดระบุ</option>
 	  <?php $result=$Db->query('SELECT * FROM hrd_sex');
 		foreach($result AS $row){
@@ -150,7 +140,7 @@
   </div>
   <div class="form-group col-md-2">
     <label for="bloodgroup">หมู่เลือด</label>
-	<select  class="form-control"  id="bloodgroup">
+	<select  class="form-control"  id="blood_group_id">
 	<option  value="">โปรดระบุ</option>
 	  <?php $result=$Db->query('SELECT * FROM hrd_blood_group');
 		foreach($result AS $row){
@@ -163,17 +153,31 @@
 	  </select>
    
   </div>
-  <div class="form-group col-md-3 ">
-    <label for="birthday">วันเกิด</label>
-	<input type="text" class="form-control datepicker " id="birthday" >
-	
+  <div class="form-group col-md-2">
+    <label for="marry_status_id">สถานภาพ</label>
+    <select  class="form-control"  id="marry_status_id">
+	<option  value="">โปรดระบุ</option>
+	<?php $result=$Db->query('SELECT * FROM hrd_marry_status');
+		foreach($result AS $row){
+			?>
+			 <option value="<?=$row['marry_status_id'];?>"><?=$row['marry_status_name'];?></option>
+	<?php
+		}	  
+	  ?>
+	 
+	  </select>
   </div>
-  <div class="form-row">
-    <div class="form-group col-md-1">
+  <div class="form-group col-md-3">
+    <label for="nickname">ชื่อเรียก</label>
+    <input type="text" class="form-control" id="nickname" >
+  </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-2">
       <label for="address_no">บ้านเลขที่</label>
       <input type="text" class="form-control" id="address_no">
     </div>
-    <div class="form-group col-md-1">
+    <div class="form-group col-md-2">
       <label for="moo">หมู่</label>
       <input type="password" class="form-control" id="moo" >
     </div>
@@ -183,56 +187,29 @@
     </div>
 	<div class="form-group col-md-2">
       <label for="tumbon_id">ตำบล</label>
-	  <select  class="form-control select2"  id="tumbon_id">
-		<option  value="">โปรดระบุ</option>
-	
+	  <select  class="form-control "  id="tumbon_id">
+		
 	  </select>
     </div>
-  </div>
-  <div class="form-row">
-  <div class="form-group col-md-2">
+	<div class="form-group col-md-2">
     <label for="amphur_id">อำเภอ</label>
-	<select  class="form-control select2"  id="amphur_id">
-	<option  value="">โปรดระบุ</option>
-	
-	 
-	  </select>
+	<select  class="form-control "  id="amphur_id">
+	</select>
   </div>
   <div class="form-group col-md-2">
     <label for="province_id">จังหวัด</label>
-	<select  class="form-control select2"  id="province_id">
-	<option  value="">โปรดระบุ</option> 
+	<select  class="form-control"  id="province_id">
 	
 	  </select>
   </div>
+  </div>
+  <div class="row">
   <div class="form-group col-md-2">
     <label for="zipcode">รหัสไปรษณี</label>
     <input type="text" class="form-control" id="zipcode">
   </div>
-  
- </div>
+ 
 
- </div>
-
- <div class="form-row">
-  <div class="form-group col-md-3">
-    <label for="email">อีเมลล์</label>
-    <input type="email" class="form-control" id="email">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="book">ตำแหน่งหนังสือราชการ</label>
-    <input type="text" class="form-control" id="book" >
-  </div>
-  <div class="form-group col-md-3">
-    <label for="vcode">รหัส ว.</label>
-    <input type="text" class="form-control" id="vcode">
-  </div>
-  <div class="form-group col-md-3">
-    <label for="">เลขที่ใบประกอบวิชาชีพ</label>
-    <input type="text" class="form-control" id="" >
-  </div>
- </div>
- <div class="form-row">
   <div class="form-group col-md-3">
 	<label for="citizenship_id">เชื้อชาติ</label>
 	
@@ -263,9 +240,9 @@
 	 
 	  </select>
   </div>
-  <div class="form-group col-md-3">
+  <div class="form-group col-md-2">
     <label for="religion_id">ศาสนา</label>
-	<select  class="form-control select2"  id="religion_id">
+	<select  class="form-control "  id="religion_id">
 	<option  value="">โปรดระบุ</option>
 	<?php $result=$Db->query('SELECT * FROM hrd_religion');
 		foreach($result AS $row){
@@ -278,33 +255,17 @@
 	  </select>
    
   </div>
-  <div class="form-group col-md-3">
-    <label for="nickname">ชื่อเรียก</label>
-    <input type="text" class="form-control" id="nickname" >
-  </div>
- </div>
- <div class="form-row">
-  <div class="form-group col-md-3">
-    <label for="salary">เงินเดือน</label>
-    <input type="text" class="form-control" id="salary" readonly>
-  </div>
-  <div class="form-group col-md-3">
-    <label for="money_position">เงินประจำตำแหน่ง</label>
-    <input type="text" class="form-control" id="money_position" >
-  </div>
   <div class="form-group col-md-2">
-    <label for="marry_status_id">สถานภาพ</label>
-    <select  class="form-control"  id="marry_status_id">
-	<option  value="">โปรดระบุ</option>
-	<?php $result=$Db->query('SELECT * FROM hrd_marry_status');
-		foreach($result AS $row){
-			?>
-			 <option value="<?=$row['marry_status_id'];?>"><?=$row['marry_status_name'];?></option>
-	<?php
-		}	  
-	  ?>
-	 
-	  </select>
+    <label for="phone_number">เบอร์โทร</label>
+    <input type="text" class="form-control" id="phone_number">
+  </div>
+  </div>
+  
+ <div class="row">
+ 
+  <div class="form-group col-md-3">
+    <label for="email">อีเมลล์</label>
+    <input type="email" class="form-control" id="email">
   </div>
   <div class="form-group col-md-2">
     <label for="facebook">facebook</label>
@@ -314,10 +275,7 @@
     <label for="line_id">Line Id</label>
     <input type="text" class="form-control" id="line_id">
   </div>
-  <div class="form-group col-md-2">
-    <label for="fingle_id">fingle Id</label>
-    <input type="text" class="form-control" id="fingle_id" >
-  </div>
+ 
  </div>
  
 </form>
@@ -336,6 +294,22 @@
 													<div class="row">
 													<form>
   <div class="form-row">
+  <div class="form-group col-md-3">
+    <label for="book">ตำแหน่งหนังสือราชการ</label>
+    <input type="text" class="form-control" id="book" >
+  </div>
+  <div class="form-group col-md-3">
+    <label for="vcode">รหัส ว.</label>
+    <input type="text" class="form-control" id="vcode">
+  </div>
+  <div class="form-group col-md-3">
+    <label for="">เลขที่ใบประกอบวิชาชีพ</label>
+    <input type="text" class="form-control" id="" >
+  </div>
+  <div class="form-group col-md-3">
+    <label for="money_position">เงินประจำตำแหน่ง</label>
+    <input type="text" class="form-control" id="money_position" >
+  </div>
     <div class="form-group col-md-1">
       <label for="">บ้านเลขที่</label>
       <input type="text" class="form-control" id="41">
@@ -366,7 +340,10 @@
     <label for="">รหัสไปรษณี</label>
     <input type="text" class="form-control" id="25">
   </div>
-  
+  <div class="form-group col-md-3">
+    <label for="salary">เงินเดือน</label>
+    <input type="text" class="form-control" id="salary" readonly>
+  </div>
  </div>
 
  
@@ -396,402 +373,59 @@
 
 												<div id="friends" class="tab-pane">
 													<div class="profile-users clearfix">
-														<div class="itemdiv memberdiv">
-															<div class="inline pos-rel">
-																<div class="user">
-																	<a href="#">
-																		<img src="assets/images/avatars/avatar4.png" alt="Bob Doe's avatar" />
-																	</a>
-																</div>
-
-																<div class="body">
-																	<div class="name">
-																		<a href="#">
-																			<span class="user-status status-online"></span>
-																			Bob Doe
-																		</a>
-																	</div>
-																</div>
-
-																<div class="popover">
-																	<div class="arrow"></div>
-
-																	<div class="popover-content">
-																		<div class="bolder">Content Editor</div>
-
-																		<div class="time">
-																			<i class="ace-icon fa fa-clock-o middle bigger-120 orange"></i>
-																			<span class="green"> 20 mins ago </span>
-																		</div>
-
-																		<div class="hr dotted hr-8"></div>
-
-																		<div class="tools action-buttons">
-																			<a href="#">
-																				<i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
-																			</a>
-
-																			<a href="#">
-																				<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-																			</a>
-
-																			<a href="#">
-																				<i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
-																			</a>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-
-														<div class="itemdiv memberdiv">
-															<div class="inline pos-rel">
-																<div class="user">
-																	<a href="#">
-																		<img src="assets/images/avatars/avatar1.png" alt="Rose Doe's avatar" />
-																	</a>
-																</div>
-
-																<div class="body">
-																	<div class="name">
-																		<a href="#">
-																			<span class="user-status status-offline"></span>
-																			Rose Doe
-																		</a>
-																	</div>
-																</div>
-
-																<div class="popover">
-																	<div class="arrow"></div>
-
-																	<div class="popover-content">
-																		<div class="bolder">Graphic Designer</div>
-
-																		<div class="time">
-																			<i class="ace-icon fa fa-clock-o middle bigger-120 grey"></i>
-																			<span class="grey"> 30 min ago </span>
-																		</div>
-
-																		<div class="hr dotted hr-8"></div>
-
-																		<div class="tools action-buttons">
-																			<a href="#">
-																				<i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
-																			</a>
-
-																			<a href="#">
-																				<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-																			</a>
-
-																			<a href="#">
-																				<i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
-																			</a>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-
-														<div class="itemdiv memberdiv">
-															<div class="inline pos-rel">
-																<div class="user">
-																	<a href="#">
-																		<img src="assets/images/avatars/avatar.png" alt="Jim Doe's avatar" />
-																	</a>
-																</div>
-
-																<div class="body">
-																	<div class="name">
-																		<a href="#">
-																			<span class="user-status status-busy"></span>
-																			Jim Doe
-																		</a>
-																	</div>
-																</div>
-
-																<div class="popover">
-																	<div class="arrow"></div>
-
-																	<div class="popover-content">
-																		<div class="bolder">SEO &amp; Advertising</div>
-
-																		<div class="time">
-																			<i class="ace-icon fa fa-clock-o middle bigger-120 red"></i>
-																			<span class="grey"> 1 hour ago </span>
-																		</div>
-
-																		<div class="hr dotted hr-8"></div>
-
-																		<div class="tools action-buttons">
-																			<a href="#">
-																				<i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
-																			</a>
-
-																			<a href="#">
-																				<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-																			</a>
-
-																			<a href="#">
-																				<i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
-																			</a>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-
-														<div class="itemdiv memberdiv">
-															<div class="inline pos-rel">
-																<div class="user">
-																	<a href="#">
-																		<img src="assets/images/avatars/avatar5.png" alt="Alex Doe's avatar" />
-																	</a>
-																</div>
-
-																<div class="body">
-																	<div class="name">
-																		<a href="#">
-																			<span class="user-status status-idle"></span>
-																			Alex Doe
-																		</a>
-																	</div>
-																</div>
-
-																<div class="popover">
-																	<div class="arrow"></div>
-
-																	<div class="popover-content">
-																		<div class="bolder">Marketing</div>
-
-																		<div class="time">
-																			<i class="ace-icon fa fa-clock-o middle bigger-120 orange"></i>
-																			<span class=""> 40 minutes idle </span>
-																		</div>
-
-																		<div class="hr dotted hr-8"></div>
-
-																		<div class="tools action-buttons">
-																			<a href="#">
-																				<i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
-																			</a>
-
-																			<a href="#">
-																				<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-																			</a>
-
-																			<a href="#">
-																				<i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
-																			</a>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-
-														<div class="itemdiv memberdiv">
-															<div class="inline pos-rel">
-																<div class="user">
-																	<a href="#">
-																		<img src="assets/images/avatars/avatar2.png" alt="Phil Doe's avatar" />
-																	</a>
-																</div>
-
-																<div class="body">
-																	<div class="name">
-																		<a href="#">
-																			<span class="user-status status-online"></span>
-																			Phil Doe
-																		</a>
-																	</div>
-																</div>
-
-																<div class="popover">
-																	<div class="arrow"></div>
-
-																	<div class="popover-content">
-																		<div class="bolder">Public Relations</div>
-
-																		<div class="time">
-																			<i class="ace-icon fa fa-clock-o middle bigger-120 orange"></i>
-																			<span class="green"> 2 hours ago </span>
-																		</div>
-
-																		<div class="hr dotted hr-8"></div>
-
-																		<div class="tools action-buttons">
-																			<a href="#">
-																				<i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
-																			</a>
-
-																			<a href="#">
-																				<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-																			</a>
-
-																			<a href="#">
-																				<i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
-																			</a>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-
-														<div class="itemdiv memberdiv">
-															<div class="inline pos-rel">
-																<div class="user">
-																	<a href="#">
-																		<img src="assets/images/avatars/avatar3.png" alt="Susan Doe's avatar" />
-																	</a>
-																</div>
-
-																<div class="body">
-																	<div class="name">
-																		<a href="#">
-																			<span class="user-status status-online"></span>
-																			Susan Doe
-																		</a>
-																	</div>
-																</div>
-
-																<div class="popover">
-																	<div class="arrow"></div>
-
-																	<div class="popover-content">
-																		<div class="bolder">HR Management</div>
-
-																		<div class="time">
-																			<i class="ace-icon fa fa-clock-o middle bigger-120 orange"></i>
-																			<span class="green"> 20 mins ago </span>
-																		</div>
-
-																		<div class="hr dotted hr-8"></div>
-
-																		<div class="tools action-buttons">
-																			<a href="#">
-																				<i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
-																			</a>
-
-																			<a href="#">
-																				<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-																			</a>
-
-																			<a href="#">
-																				<i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
-																			</a>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-
-														<div class="itemdiv memberdiv">
-															<div class="inline pos-rel">
-																<div class="user">
-																	<a href="#">
-																		<img src="assets/images/avatars/avatar1.png" alt="Jennifer Doe's avatar" />
-																	</a>
-																</div>
-
-																<div class="body">
-																	<div class="name">
-																		<a href="#">
-																			<span class="user-status status-offline"></span>
-																			Jennifer Doe
-																		</a>
-																	</div>
-																</div>
-
-																<div class="popover">
-																	<div class="arrow"></div>
-
-																	<div class="popover-content">
-																		<div class="bolder">Graphic Designer</div>
-
-																		<div class="time">
-																			<i class="ace-icon fa fa-clock-o middle bigger-120 grey"></i>
-																			<span class="grey"> 2 hours ago </span>
-																		</div>
-
-																		<div class="hr dotted hr-8"></div>
-
-																		<div class="tools action-buttons">
-																			<a href="#">
-																				<i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
-																			</a>
-
-																			<a href="#">
-																				<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-																			</a>
-
-																			<a href="#">
-																				<i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
-																			</a>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-
-														<div class="itemdiv memberdiv">
-															<div class="inline pos-rel">
-																<div class="user">
-																	<a href="#">
-																		<img src="assets/images/avatars/avatar3.png" alt="Alexa Doe's avatar" />
-																	</a>
-																</div>
-
-																<div class="body">
-																	<div class="name">
-																		<a href="#">
-																			<span class="user-status status-offline"></span>
-																			Alexa Doe
-																		</a>
-																	</div>
-																</div>
-
-																<div class="popover">
-																	<div class="arrow"></div>
-
-																	<div class="popover-content">
-																		<div class="bolder">Accounting</div>
-
-																		<div class="time">
-																			<i class="ace-icon fa fa-clock-o middle bigger-120 grey"></i>
-																			<span class="grey"> 4 hours ago </span>
-																		</div>
-
-																		<div class="hr dotted hr-8"></div>
-
-																		<div class="tools action-buttons">
-																			<a href="#">
-																				<i class="ace-icon fa fa-facebook-square blue bigger-150"></i>
-																			</a>
-
-																			<a href="#">
-																				<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-																			</a>
-
-																			<a href="#">
-																				<i class="ace-icon fa fa-google-plus-square red bigger-150"></i>
-																			</a>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
+													<form class="form-horizontal" role="form">
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> รหัสผ่านเดิม </label>
+
+										<div class="col-sm-9">
+											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-2"> รหัสผ่านใหม่ </label>
+
+										<div class="col-sm-9">
+											<input type="password" id="form-field-2" placeholder="Password" class="col-xs-10 col-sm-5" />
+											<span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">Inline help text</span>
+											</span>
+										</div>
+									</div>
+
+									<div class="space-4"></div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-input-readonly"> ยืนยันรหัสผ่านใหม่ </label>
+
+										<div class="col-sm-9">
+											<input  type="text" class="col-xs-10 col-sm-5" id="form-input-readonly" value="" />
+											
+										</div>
+									</div>
+
+									<div class="clearfix form-actions">
+										<div class="col-md-offset-3 col-md-9">
+											<button class="btn btn-info" type="button">
+												<i class="ace-icon fa fa-check bigger-110"></i>
+												Submit
+											</button>
+
+											&nbsp; &nbsp; &nbsp;
+											<button class="btn" type="reset">
+												<i class="ace-icon fa fa-undo bigger-110"></i>
+												Reset
+											</button>
+										</div>
+									</div>
+
+									
+								</form>
 													</div>
 
-													<div class="hr hr10 hr-double"></div>
+													
 
-													<ul class="pager pull-right">
-														<li class="previous disabled">
-															<a href="#">&larr; Prev</a>
-														</li>
-
-														<li class="next">
-															<a href="#">Next &rarr;</a>
-														</li>
-													</ul>
+													
 												</div><!-- /#friends -->
 
 												<div id="pictures" class="tab-pane">
@@ -1140,7 +774,7 @@
 				   success:function(data){
 					   console.log(data);
 						 //กำหนดให้ข้อมูลใน #amphur เป็นค่าว่าง
-						 $("#amphur_id").text("");
+					//	 $("#amphur_id").text("");
 					//	 console.log(data);
 					   $.each(data, function( index, value ) {
 							 $("#amphur_id").append("<option value='"+ value.id +"'> " + value.name + "</option>");
@@ -1148,13 +782,29 @@
 				   }
 			   });
 		
-
+			   var person_id_tumbon = '<?=$_SESSION['person_id'];?>' ;  //แสดงชื่ออำเภอใน DB
+				$.ajax({
+				   url:"data/province_ch_data.php",
+				   dataType: "json",
+				   data:{person_id_tumbon:person_id_tumbon}, 
+				   success:function(data){
+					 //  console.log(data);
+						 //กำหนดให้ข้อมูลใน #amphur เป็นค่าว่าง
+						// $("#tumbon_id").text("");
+					//	 console.log(data);
+					   $.each(data, function( index, value ) {
+							 $("#tumbon_id").append("<option value='"+ value.id +"'> " + value.name + "</option>");
+					   });
+				   }
+			   });
 				 //แสดงข้อมูล อำเภอ  โดยใช้คำสั่ง change จะทำงานกรณีมีการเปลี่ยนแปลงที่ #province
 				 $("#province_id").change(function(){
-
+					
+					$("#tumbon_id").val("");
+					$("#amphur_id").val("");
 //กำหนดให้ ตัวแปร province มีค่าเท่ากับ ค่าของ #province ที่กำลังถูกเลือกในขณะนั้น
 var province_id = $(this).val();
-
+  
 $.ajax({
 				   url:"data/province_ch_data.php",
 				   dataType: "json",
@@ -1162,12 +812,39 @@ $.ajax({
 				   success:function(data){
 						 //กำหนดให้ข้อมูลใน #amphur เป็นค่าว่าง
 						 $("#amphur_id").text("");
+						
 					//	 console.log(data);
 					   $.each(data, function( index, value ) {
 							 $("#amphur_id").append("<option value='"+ value.id +"'> " + value.name + "</option>");
 					   });
 				   }
 			   });
+			
+});
+		   
+$("#amphur_id").change(function(){
+
+//กำหนดให้ ตัวแปร province มีค่าเท่ากับ ค่าของ #province ที่กำลังถูกเลือกในขณะนั้น
+var amphur_id = $(this).val();
+
+$.ajax({
+				   url:"data/province_ch_data.php",
+				   dataType: "json",
+				   data:{amphur_id:amphur_id}, 
+				   success:function(data){
+						 //กำหนดให้ข้อมูลใน #amphur เป็นค่าว่าง
+						 $("#tumbon_id").text("");
+
+					//	 console.log(data);
+					   $.each(data, function( index, value ) {
+							 $("#tumbon_id").append("<option value='"+ value.id +"'> " + value.name + "</option>");
+					   });
+				   }
+			   });
+
+			 
+                  
+			
 
 });
 		   
