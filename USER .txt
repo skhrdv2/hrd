@@ -1,7 +1,5 @@
 mysql
-ip server: 220.80.228.36
-user: skhrd
-pass: 12345678
+
 
 dropbox
 email : hrdv2sk@gmail.com
