@@ -2,7 +2,6 @@
 include_once('../lib/config.inc.php');
 $Db = new MySqlConn;
 if(isset($_GET['show_province'])){
-
 $sql="SELECT province_id ,province_name_th FROM hrd_province";
 $result=$Db->query($sql);
    //วนลูปแสดงข้อมูลที่ได้ เก็บไว้ในตัวแปร $row
@@ -41,11 +40,7 @@ $result=$Db->query($sql);
 					'id'=>$row['amphur_id'],
 					'name'=>$row['amphur_name'],
 				];
-		//	}
-			
-			//ใช้ Function json_encode แปลงข้อมูลในตัวแปร $json_result ให้เป็นรูปแบบ Json
-			
-			
+	
         } 
         echo json_encode($json_result);
 	}
@@ -78,11 +73,6 @@ $result=$Db->query($sql);
 					'id'=>$row['amphur_id'],
 					'name'=>$row['amphur_name'],
 				];
-		//	}
-			
-			//ใช้ Function json_encode แปลงข้อมูลในตัวแปร $json_result ให้เป็นรูปแบบ Json
-			
-			
         } 
         echo json_encode($json_result);
 	}
@@ -110,11 +100,7 @@ $result=$Db->query($sql);
 					'id'=>$row['tumbon_id'],
 					'name'=>$row['tumbon_name'],
 				];
-		//	}
-			
-			//ใช้ Function json_encode แปลงข้อมูลในตัวแปร $json_result ให้เป็นรูปแบบ Json
-			
-			
+		//	}	
         } 
         echo json_encode($json_result);
 	}
@@ -127,29 +113,16 @@ $result=$Db->query($sql);
 		//คำสั่ง SQL เลือก AMPHUR_ID และ  AMPHUR_NAME ที่มี PROVINCE_ID เท่ากับ $province_id
 		$sql = "SELECT ah.* FROM hrd_person ps 
 		inner join hrd_tumbon ah ON ah.amphur_id =ps.amphur_id 
-		WHERE ps.person_id =  '".$person_id."'
+		WHERE ps.person_id =  '".$person_id."'";
 		
-		";
-		
-		//ประมวณผลคำสั่ง SQL
 		$result = $Db->query($sql);
-
-		//ตรวจสอบ จำนวนข้อมูลที่ได้ มีค่ามากกว่า  0 หรือไม่
-	//	if ($result->num_rows > 0) {
-			
-			//วนลูปนำข้อมูลที่ได้ เก็บไว้ในตัวแปร $row
             foreach($result as $row) {
 				
 				//เก็บข้อมูลที่ได้ไว้ในตัวแปร Array 
 				$json_result[] = [
 					'id'=>$row['tumbon_id'],
 					'name'=>$row['tumbon_name'],
-				];
-		//	}
-			
-			//ใช้ Function json_encode แปลงข้อมูลในตัวแปร $json_result ให้เป็นรูปแบบ Json
-			
-			
+				];	
         } 
         echo json_encode($json_result);
 	}
