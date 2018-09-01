@@ -1016,7 +1016,7 @@ $Db->access();
 
         <!--[if !IE]> -->
         <script src="assets/js/jquery-2.1.4.min.js"></script>
-
+  <script src="includes/select2-4.0.6/js/select2.min.js"></script>
         <!-- <![endif]-->
 
         <!--[if IE]>
@@ -1047,7 +1047,7 @@ $Db->access();
         <!-- ace scripts -->
         <script src="assets/js/ace-elements.min.js"></script>
         <script src="assets/js/ace.min.js"></script>
-        <script src="includes/select2-4.0.6/js/select2.min.js"></script>
+      
         <!-- inline scripts related to this page -->
         <script type="text/javascript">
                             jQuery(function ($) {
@@ -1287,6 +1287,9 @@ $('.datepicker').datepicker({
     todayHighlight: true,
     
 });    
+               
+ 
+             
  
         </script>
     </body>

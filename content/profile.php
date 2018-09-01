@@ -187,19 +187,20 @@
     </div>
 	<div class="form-group col-md-2">
       <label for="tumbon_id">ตำบล</label>
-	  <select  class="form-control "  id="tumbon_id">
-		
+	  <select  class="form-control select2-single "  id="tumbon_id">
+	  <option value="">--โปรดเลือกตำบล--</option>
 	  </select>
     </div>
 	<div class="form-group col-md-2">
     <label for="amphur_id">อำเภอ</label>
 	<select  class="form-control "  id="amphur_id">
+	<option value="">--โปรดเลือกอำเภอ--</option>
 	</select>
-  </div>
-  <div class="form-group col-md-2">
+	  </div>
+  <div class="form-group col-md-2 ">
     <label for="province_id">จังหวัด</label>
-	<select  class="form-control"  id="province_id">
-	
+	<select  class="form-control "  name="province_id" id="province_id" >
+	<option value="" ></option>
 	  </select>
   </div>
   </div>
@@ -213,7 +214,7 @@
   <div class="form-group col-md-3">
 	<label for="citizenship_id">เชื้อชาติ</label>
 	
-	<select  class="form-control select2"  id="citizenship_id">
+	<select  class="form-control select2-single"  id="citizenship_id">
 	<option  value="">โปรดระบุ</option>
 	<?php $result=$Db->query('SELECT * FROM hrd_citizenship');
 		foreach($result AS $row){
@@ -294,14 +295,31 @@
 													<div class="row">
 													<form>
   <div class="form-row">
+  <div class="form-group col-md-2 ">
+      <label for="startwork_date">วันที่เริ่มทำงาน</label>
+      <input type="text" class="form-control" id="startwork_date">
+    </div>
+	<div class="form-group col-md-3">
+    <label for="vcode">รหัส ว.</label>
+    <input type="text" class="form-control" id="vcode">
+  </div>
+	<div class="form-group col-md-2">
+    <label for="department_id">สังกัดกลุ่มงาน</label>
+    <select  type="text" class="form-control" id="department_id">
+	<option value="">--เลือกกลุ่มงาน--</option>
+	</select>
+  </div>
+  <div class="form-group col-md-2">
+    <label for="department_sub_id">แผนก</label>
+	<select  type="text" class="form-control" id="department_sub_id">
+	<option value="">--เลือกกลุ่มงาน--</option>
+	</select>
+  </div>
   <div class="form-group col-md-3">
     <label for="book">ตำแหน่งหนังสือราชการ</label>
     <input type="text" class="form-control" id="book" >
   </div>
-  <div class="form-group col-md-3">
-    <label for="vcode">รหัส ว.</label>
-    <input type="text" class="form-control" id="vcode">
-  </div>
+  
   <div class="form-group col-md-3">
     <label for="">เลขที่ใบประกอบวิชาชีพ</label>
     <input type="text" class="form-control" id="" >
@@ -310,65 +328,42 @@
     <label for="money_position">เงินประจำตำแหน่ง</label>
     <input type="text" class="form-control" id="money_position" >
   </div>
+   
     <div class="form-group col-md-1">
-      <label for="">บ้านเลขที่</label>
-      <input type="text" class="form-control" id="41">
-    </div>
-    <div class="form-group col-md-1">
-      <label for="">หมู่</label>
+      <label for="">กลุ่มบุคลากร</label>
       <input type="password" class="form-control" id="40" >
     </div>
 	<div class="form-group col-md-2">
-      <label for="">ถนน</label>
+      <label for="">ประเภทวิชาชีพ</label>
       <input type="text" class="form-control" id="29" >
     </div>
 	<div class="form-group col-md-2">
-      <label for="">ตำบล</label>
+      <label for="">ต้นสังกัด</label>
       <input type="text" class="form-control" id="28" >
     </div>
   </div>
   <div class="form-row">
   <div class="form-group col-md-2">
-    <label for="">อำเภอ</label>
+    <label for="">สถานะปัจจุบัน</label>
     <input type="text" class="form-control" id="27">
   </div>
-  <div class="form-group col-md-2">
-    <label for="">จังหวัด</label>
-    <input type="text" class="form-control" id="26">
-  </div>
-  <div class="form-group col-md-2">
-    <label for="">รหัสไปรษณี</label>
-    <input type="text" class="form-control" id="25">
-  </div>
+  
+ 
   <div class="form-group col-md-3">
-    <label for="salary">เงินเดือน</label>
+    <label for="salary">ตำแหน่ง</label>
     <input type="text" class="form-control" id="salary" readonly>
   </div>
- </div>
-
- 
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Check me out
-      </label>
-    </div>
+  <div class="form-group col-md-3">
+    <label for="dfs">ระดับ</label>
+    <input type="text" class="form-control" id="ddd" readonly>
   </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
+ </div>
 </form>
 													</div><!-- /.row -->
 
 													<div class="space-12"></div>
 
-													<div class="center">
-														<button type="button" class="btn btn-sm btn-primary btn-white btn-round">
-															<i class="ace-icon fa fa-rss bigger-150 middle orange2"></i>
-															<span class="bigger-110">View more activities</span>
-
-															<i class="icon-on-right ace-icon fa fa-arrow-right"></i>
-														</button>
-													</div>
+												
 												</div><!-- /#feed -->
 
 												<div id="friends" class="tab-pane">
@@ -704,18 +699,16 @@
 
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
-			$(document).ready(function(){
-			
+		  $(function(){
+		
 			var person_id = '<?=$_SESSION['person_id'];?>' ;
 			$.ajax({
 				url:"data/profile_data.php",
 				type:"POST",
 				data:{person_id:person_id},
 				success:function(data){
-				//console.log(data);
+				console.log(data);
 				var ard = JSON.parse(data);
-                       // $("#username").hide();
-                      //  $("#textuser").show();
                         $("#cid").val(ard['cid']);
                         $("#pname").val(ard['prename_id']);
                     	$("#fname").val(ard['fname']);
@@ -735,7 +728,7 @@
                         
 						$("#citizenship_id").val(ard['citizenship_id']).change();
 						$("#nationality_id").val(ard['nationality_id']).change();
-						$("#religion_id").val(ard['religion_id']).change();
+						$("#religion_id").val(ard['religion_id']).trigger('change');
 						$("#nickname").val(ard['nickname']);
 						$("#salary").val(ard['salary']);
 						$("#salary_position").val(ard['salary_position']);
@@ -744,110 +737,119 @@
 								$("#facebook").val(ard['facebook']);
 								$("#line_id").val(ard['line_id']);
 								$("#fingle_id").val(ard['fingle_id']);
-					
-				
-					
+
+			//ข้อมูลบุคลากร
+			$("#startwork_date").val(ard['startwork_date']);					
+			$("#vcode").val(ard['vcode']);
+			$("#department_id").val(ard['department_id']);
+			$("#department_sub_id").val(ard['department_sub_id']);
 			}	
-			
 			}); //เรียกข้อมูลออกมาแสดง
+}); 
+   
 
-});
-
-
-		$.ajax({    //แสดงชื่อจังหวัดใน DB
+   //เลื้อกจังหวัด อำเภอ ตำบล
+	$.ajax({    //แสดงชื่อจังหวัดในทั้งหมด
 		
-					url:"data/province_ch_data.php",
-					dataType: "json",
-					data:{show_province:'show_province'}, 
-					success:function(data){
-					//	console.log(data);
-						$.each(data, function( index, value ) {
-							  $("#province_id").append("<option value='"+ value.id +"'> " + value.name + "</option>");
-						});
-					}
-				});
-				var person_id = '<?=$_SESSION['person_id'];?>' ;  //แสดงชื่ออำเภอใน DB
-				$.ajax({
-				   url:"data/province_ch_data.php",
-				   dataType: "json",
-				   data:{person_id:person_id}, 
-				   success:function(data){
-					   console.log(data);
-						 //กำหนดให้ข้อมูลใน #amphur เป็นค่าว่าง
-					//	 $("#amphur_id").text("");
-					//	 console.log(data);
-					   $.each(data, function( index, value ) {
-							 $("#amphur_id").append("<option value='"+ value.id +"'> " + value.name + "</option>");
-					   });
-				   }
-			   });
-		
-			   var person_id_tumbon = '<?=$_SESSION['person_id'];?>' ;  //แสดงชื่ออำเภอใน DB
-				$.ajax({
-				   url:"data/province_ch_data.php",
-				   dataType: "json",
-				   data:{person_id_tumbon:person_id_tumbon}, 
-				   success:function(data){
-					 //  console.log(data);
-						 //กำหนดให้ข้อมูลใน #amphur เป็นค่าว่าง
-						// $("#tumbon_id").text("");
-					//	 console.log(data);
-					   $.each(data, function( index, value ) {
-							 $("#tumbon_id").append("<option value='"+ value.id +"'> " + value.name + "</option>");
-					   });
-				   }
-			   });
+		url:"data/province_ch_data.php",
+		dataType: "json",
+		data:{show_province:'show_province'}, 
+		success:function(data){
+		//	console.log(data);
+			$.each(data, function( index, value ) {
+				  $("#province_id").append("<option value='"+ value.id +"'> " + value.name + "</option>");
+			});
+		}
+	});
+	var person_id = '<?=$_SESSION['person_id'];?>' ;  //แสดงชื่ออำเภอในทั้งหมด
+	$.ajax({
+	   url:"data/province_ch_data.php",
+	   dataType: "json",
+	   data:{person_id:person_id}, 
+	   success:function(data){
+		   $.each(data, function( index, value ) {
+				 $("#amphur_id").append("<option class='amphur_show' value='"+ value.id +"'> " + value.name + "</option>");
+		   });
+	   }
+   });
+
+   var person_id_tumbon = '<?=$_SESSION['person_id'];?>' ;  //แสดงชื่ออำเภอในทั้งหมด
+	$.ajax({
+	   url:"data/province_ch_data.php",
+	   dataType: "json",
+	   data:{person_id_tumbon:person_id_tumbon}, 
+	   success:function(data){
+		   $.each(data, function( index, value ) {
+				 $("#tumbon_id").append("<option  class='tumbon_show' value='"+ value.id +"'> " + value.name + "</option>");
+		   });
+	   }
+   });
+
 				 //แสดงข้อมูล อำเภอ  โดยใช้คำสั่ง change จะทำงานกรณีมีการเปลี่ยนแปลงที่ #province
-				 $("#province_id").change(function(){
-					
-					$("#tumbon_id").val("");
-					$("#amphur_id").val("");
-//กำหนดให้ ตัวแปร province มีค่าเท่ากับ ค่าของ #province ที่กำลังถูกเลือกในขณะนั้น
-var province_id = $(this).val();
-  
-$.ajax({
+				 $("#province_id").change(function(){	
+					// $("#amphur_id").val("");
+						$(".amphur_show").remove();
+						$(".tumbon_show").remove();
+				//กำหนดให้ ตัวแปร province มีค่าเท่ากับ ค่าของ #province ที่กำลังถูกเลือกในขณะนั้น
+			var province_id = $(this).val();
+		
+				$.ajax({
 				   url:"data/province_ch_data.php",
 				   dataType: "json",
 				   data:{province_id:province_id}, 
 				   success:function(data){
-						 //กำหนดให้ข้อมูลใน #amphur เป็นค่าว่าง
-						 $("#amphur_id").text("");
-						
-					//	 console.log(data);
+					$("#amphur_id").text("");
+					$("#amphur_id").val("");
 					   $.each(data, function( index, value ) {
-							 $("#amphur_id").append("<option value='"+ value.id +"'> " + value.name + "</option>");
+							 $("#amphur_id").append("<option class='amphur_show' value='"+ value.id +"'> " + value.name + "</option>");
 					   });
 				   }
 			   });
-			
-});
-		   
-$("#amphur_id").change(function(){
-
-//กำหนดให้ ตัวแปร province มีค่าเท่ากับ ค่าของ #province ที่กำลังถูกเลือกในขณะนั้น
+			});
+			//แสดงข้อมูลตำบล  โดยใช้คำสั่ง change จะทำงานกรณีมีการเปลี่ยนแปลงที่ #tumbon
+		   $("#amphur_id").change(function(){
+			$(".tumbon_show").remove();
 var amphur_id = $(this).val();
 
-$.ajax({
+				$.ajax({
 				   url:"data/province_ch_data.php",
 				   dataType: "json",
 				   data:{amphur_id:amphur_id}, 
 				   success:function(data){
-						 //กำหนดให้ข้อมูลใน #amphur เป็นค่าว่าง
-						 $("#tumbon_id").text("");
-
-					//	 console.log(data);
+								
 					   $.each(data, function( index, value ) {
-							 $("#tumbon_id").append("<option value='"+ value.id +"'> " + value.name + "</option>");
+							 $("#tumbon_id").append("<option class='tumbon_show' value='"+ value.id +"'> " + value.name + "</option>");
 					   });
 				   }
 			   });
-
-			 
-                  
-			
-
 });
-		   
+		//สิ้นสุดสคริป เลือก จังหวัด อำเภอ ตำบล
+		
+		//เลื้อกแผนกฝ่าย
+	$.ajax({    //แสดงชื่อแผนกทั้งหมด
+		
+		url:"data/department_data.php",
+		dataType: "json",
+		data:{show_department:'show_department'}, 
+		success:function(data){
+		//	console.log(data);
+			$.each(data, function( index, value ) {
+				  $("#department_id").append("<option value='"+ value.id +"'> " + value.name + "</option>");
+			});
+			
+		}
+	});
+	
+	$.ajax({
+	   url:"data/department_data.php",
+	   dataType: "json",
+	   data:{show_department_sub:'show_department_sub',person_id:person_id}, 
+	   success:function(data){
+		   $.each(data, function( index, value ) {
+				 $("#department_sub_id").append("<option  value='"+ value.id +"'> " + value.name + "</option>");
+		   });
+	   }
+   });
 
                //ปิดการใช้งาน editable ก่อน
 				//editables on first profile page
@@ -1296,7 +1298,7 @@ $.ajax({
                 //เรียกใช้งาน Select2
                // $(".select2-single").select2();
 			
-              
+			 
          
 		</script>
 
