@@ -1,4 +1,4 @@
-.*
-!.keepdir
+
+.gitattributes
 lib/host.php
-lib/host.php
+*.php
