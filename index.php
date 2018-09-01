@@ -339,8 +339,8 @@ $Db->access();
                             <a data-toggle="dropdown" href="#" class="dropdown-toggle">
                                 <img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo" />
                                 <span class="user-info">
-                                    <small>ยินดีต้อนรับ,</small>
-                                    คุณจิรวัฒน์
+                                    <small>ยินดีต้อนรับ</small>
+                                   คุณ<?=$_SESSION['fname']; ?>
                                 </span>
 
                                 <i class="ace-icon fa fa-caret-down"></i>
