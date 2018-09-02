@@ -200,7 +200,7 @@
   <div class="form-group col-md-2 ">
     <label for="province_id">จังหวัด</label>
 	<select  class="form-control "  name="province_id" id="province_id" >
-	<option value="" ></option>
+	<option value="" >--โปรดเลือกจังหวัด--</option>
 	  </select>
   </div>
   </div>
@@ -331,7 +331,7 @@
    
     <div class="form-group col-md-1">
       <label for="">กลุ่มบุคลากร</label>
-      <input type="password" class="form-control" id="40" >
+      <input type="text" class="form-control" id="level_type_id" >
     </div>
 	<div class="form-group col-md-2">
       <label for="">ประเภทวิชาชีพ</label>
@@ -350,13 +350,27 @@
   
  
   <div class="form-group col-md-3">
-    <label for="salary">ตำแหน่ง</label>
-    <input type="text" class="form-control" id="salary" readonly>
+    <label for="position_id">ตำแหน่ง</label>
+    <select type="text" class="form-control" id="position_id">
+	<option value="">--เลือกตำแหน่ง--</option>
+	<?php $result=$Db->query('SELECT * FROM hrd_position');
+		foreach($result AS $row){
+			?>
+			 <option value="<?=$row['position_id'];?>"><?=$row['position_name'];?></option>
+	<?php
+		}	  
+	  ?>
+	</select>
   </div>
   <div class="form-group col-md-3">
     <label for="dfs">ระดับ</label>
     <input type="text" class="form-control" id="ddd" readonly>
   </div>
+  <div class="form-group col-md-3">
+    <label for="sarary">เงินเดือน</label>
+    <input type="text" class="form-control" id="sarary" readonly>
+  </div>
+
  </div>
 </form>
 													</div><!-- /.row -->
@@ -373,7 +387,7 @@
 										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> รหัสผ่านเดิม </label>
 
 										<div class="col-sm-9">
-											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />
+											<input type="text" id="form-field-1" placeholder="รหัสผ่านเดิม" class="col-xs-10 col-sm-5" />
 										</div>
 									</div>
 
@@ -381,7 +395,7 @@
 										<label class="col-sm-3 control-label no-padding-right" for="form-field-2"> รหัสผ่านใหม่ </label>
 
 										<div class="col-sm-9">
-											<input type="password" id="form-field-2" placeholder="Password" class="col-xs-10 col-sm-5" />
+											<input type="password" id="form-field-2" placeholder="รหัสผ่านใหม่" class="col-xs-10 col-sm-5" />
 											<span class="help-inline col-xs-12 col-sm-7">
 												<span class="middle">Inline help text</span>
 											</span>
@@ -394,7 +408,7 @@
 										<label class="col-sm-3 control-label no-padding-right" for="form-input-readonly"> ยืนยันรหัสผ่านใหม่ </label>
 
 										<div class="col-sm-9">
-											<input  type="text" class="col-xs-10 col-sm-5" id="form-input-readonly" value="" />
+											<input  type="text" class="col-xs-10 col-sm-5" id="ยืนยันรหัสผ่านใหม่" value="" />
 											
 										</div>
 									</div>
@@ -428,195 +442,6 @@
 														<li>
 															<a href="#" data-rel="colorbox">
 																<img alt="150x150" src="assets/images/gallery/thumb-1.jpg" />
-																<div class="text">
-																	<div class="inner">Sample Caption on Hover</div>
-																</div>
-															</a>
-
-															<div class="tools tools-bottom">
-																<a href="#">
-																	<i class="ace-icon fa fa-link"></i>
-																</a>
-
-																<a href="#">
-																	<i class="ace-icon fa fa-paperclip"></i>
-																</a>
-
-																<a href="#">
-																	<i class="ace-icon fa fa-pencil"></i>
-																</a>
-
-																<a href="#">
-																	<i class="ace-icon fa fa-times red"></i>
-																</a>
-															</div>
-														</li>
-
-														<li>
-															<a href="#" data-rel="colorbox">
-																<img alt="150x150" src="assets/images/gallery/thumb-2.jpg" />
-																<div class="text">
-																	<div class="inner">Sample Caption on Hover</div>
-																</div>
-															</a>
-
-															<div class="tools tools-bottom">
-																<a href="#">
-																	<i class="ace-icon fa fa-link"></i>
-																</a>
-
-																<a href="#">
-																	<i class="ace-icon fa fa-paperclip"></i>
-																</a>
-
-																<a href="#">
-																	<i class="ace-icon fa fa-pencil"></i>
-																</a>
-
-																<a href="#">
-																	<i class="ace-icon fa fa-times red"></i>
-																</a>
-															</div>
-														</li>
-
-														<li>
-															<a href="#" data-rel="colorbox">
-																<img alt="150x150" src="assets/images/gallery/thumb-3.jpg" />
-																<div class="text">
-																	<div class="inner">Sample Caption on Hover</div>
-																</div>
-															</a>
-
-															<div class="tools tools-bottom">
-																<a href="#">
-																	<i class="ace-icon fa fa-link"></i>
-																</a>
-
-																<a href="#">
-																	<i class="ace-icon fa fa-paperclip"></i>
-																</a>
-
-																<a href="#">
-																	<i class="ace-icon fa fa-pencil"></i>
-																</a>
-
-																<a href="#">
-																	<i class="ace-icon fa fa-times red"></i>
-																</a>
-															</div>
-														</li>
-
-														<li>
-															<a href="#" data-rel="colorbox">
-																<img alt="150x150" src="assets/images/gallery/thumb-4.jpg" />
-																<div class="text">
-																	<div class="inner">Sample Caption on Hover</div>
-																</div>
-															</a>
-
-															<div class="tools tools-bottom">
-																<a href="#">
-																	<i class="ace-icon fa fa-link"></i>
-																</a>
-
-																<a href="#">
-																	<i class="ace-icon fa fa-paperclip"></i>
-																</a>
-
-																<a href="#">
-																	<i class="ace-icon fa fa-pencil"></i>
-																</a>
-
-																<a href="#">
-																	<i class="ace-icon fa fa-times red"></i>
-																</a>
-															</div>
-														</li>
-
-														<li>
-															<a href="#" data-rel="colorbox">
-																<img alt="150x150" src="assets/images/gallery/thumb-5.jpg" />
-																<div class="text">
-																	<div class="inner">Sample Caption on Hover</div>
-																</div>
-															</a>
-
-															<div class="tools tools-bottom">
-																<a href="#">
-																	<i class="ace-icon fa fa-link"></i>
-																</a>
-
-																<a href="#">
-																	<i class="ace-icon fa fa-paperclip"></i>
-																</a>
-
-																<a href="#">
-																	<i class="ace-icon fa fa-pencil"></i>
-																</a>
-
-																<a href="#">
-																	<i class="ace-icon fa fa-times red"></i>
-																</a>
-															</div>
-														</li>
-
-														<li>
-															<a href="#" data-rel="colorbox">
-																<img alt="150x150" src="assets/images/gallery/thumb-6.jpg" />
-																<div class="text">
-																	<div class="inner">Sample Caption on Hover</div>
-																</div>
-															</a>
-
-															<div class="tools tools-bottom">
-																<a href="#">
-																	<i class="ace-icon fa fa-link"></i>
-																</a>
-
-																<a href="#">
-																	<i class="ace-icon fa fa-paperclip"></i>
-																</a>
-
-																<a href="#">
-																	<i class="ace-icon fa fa-pencil"></i>
-																</a>
-
-																<a href="#">
-																	<i class="ace-icon fa fa-times red"></i>
-																</a>
-															</div>
-														</li>
-
-														<li>
-															<a href="#" data-rel="colorbox">
-																<img alt="150x150" src="assets/images/gallery/thumb-1.jpg" />
-																<div class="text">
-																	<div class="inner">Sample Caption on Hover</div>
-																</div>
-															</a>
-
-															<div class="tools tools-bottom">
-																<a href="#">
-																	<i class="ace-icon fa fa-link"></i>
-																</a>
-
-																<a href="#">
-																	<i class="ace-icon fa fa-paperclip"></i>
-																</a>
-
-																<a href="#">
-																	<i class="ace-icon fa fa-pencil"></i>
-																</a>
-
-																<a href="#">
-																	<i class="ace-icon fa fa-times red"></i>
-																</a>
-															</div>
-														</li>
-
-														<li>
-															<a href="#" data-rel="colorbox">
-																<img alt="150x150" src="assets/images/gallery/thumb-2.jpg" />
 																<div class="text">
 																	<div class="inner">Sample Caption on Hover</div>
 																</div>
@@ -699,15 +524,13 @@
 
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
+		var person_id = '<?=$_SESSION['person_id'];?>' ;
 		  $(function(){
-		
-			var person_id = '<?=$_SESSION['person_id'];?>' ;
 			$.ajax({
 				url:"data/profile_data.php",
 				type:"POST",
 				data:{person_id:person_id},
 				success:function(data){
-				console.log(data);
 				var ard = JSON.parse(data);
                         $("#cid").val(ard['cid']);
                         $("#pname").val(ard['prename_id']);
@@ -743,6 +566,9 @@
 			$("#vcode").val(ard['vcode']);
 			$("#department_id").val(ard['department_id']);
 			$("#department_sub_id").val(ard['department_sub_id']);
+			$("#sarary").val(ard['sarary']);
+			$("#position_id").val(ard['position_id']);
+			$("#lavel_type_id").val(ard['lavel_type_id']);
 			}	
 			}); //เรียกข้อมูลออกมาแสดง
 }); 
@@ -761,7 +587,7 @@
 			});
 		}
 	});
-	var person_id = '<?=$_SESSION['person_id'];?>' ;  //แสดงชื่ออำเภอในทั้งหมด
+
 	$.ajax({
 	   url:"data/province_ch_data.php",
 	   dataType: "json",
@@ -773,11 +599,10 @@
 	   }
    });
 
-   var person_id_tumbon = '<?=$_SESSION['person_id'];?>' ;  //แสดงชื่ออำเภอในทั้งหมด
 	$.ajax({
 	   url:"data/province_ch_data.php",
 	   dataType: "json",
-	   data:{person_id_tumbon:person_id_tumbon}, 
+	   data:{person_id_tumbon:person_id}, 
 	   success:function(data){
 		   $.each(data, function( index, value ) {
 				 $("#tumbon_id").append("<option  class='tumbon_show' value='"+ value.id +"'> " + value.name + "</option>");
@@ -798,8 +623,9 @@
 				   dataType: "json",
 				   data:{province_id:province_id}, 
 				   success:function(data){
-					$("#amphur_id").text("");
 					$("#amphur_id").val("");
+					$("#tumbon_id").val("");
+					
 					   $.each(data, function( index, value ) {
 							 $("#amphur_id").append("<option class='amphur_show' value='"+ value.id +"'> " + value.name + "</option>");
 					   });
@@ -808,7 +634,7 @@
 			});
 			//แสดงข้อมูลตำบล  โดยใช้คำสั่ง change จะทำงานกรณีมีการเปลี่ยนแปลงที่ #tumbon
 		   $("#amphur_id").change(function(){
-			$(".tumbon_show").remove();
+				$(".tumbon_show").remove();
 var amphur_id = $(this).val();
 
 				$.ajax({

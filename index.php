@@ -16,6 +16,7 @@ $Db->access();
 
         <!-- bootstrap & fontawesome -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+       
         <link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css" />
 
         <!-- page specific plugin styles -->
@@ -26,7 +27,7 @@ $Db->access();
         <!-- ace styles -->
         <link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
 <!-- page specific plugin styles -->
-<link rel="stylesheet" href="assets/css/jquery-ui.custom.min.css" />
+        <link rel="stylesheet" href="assets/css/jquery-ui.custom.min.css" />
 		<link rel="stylesheet" href="assets/css/jquery.gritter.min.css" />
 		<link href="includes/select2-4.0.6/css/select2.min.css" rel="stylesheet">
 		
@@ -38,6 +39,7 @@ $Db->access();
         <![endif]-->
         <link rel="stylesheet" href="assets/css/ace-skins.min.css" />
         <link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+     
 
         <!--[if lte IE 9]>
           <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
@@ -47,7 +49,7 @@ $Db->access();
 
         <!-- ace settings handler -->
         <script src="assets/js/ace-extra.min.js"></script>
-
+        <script src="includes/jquery-2.2.3.min.js"></script>
         <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
         <!--[if lte IE 8]>
@@ -480,61 +482,14 @@ $Db->access();
                         <b class="arrow"></b>
 
                         <ul class="submenu">
+                          
                             <li class="">
-                                <a href="#" class="dropdown-toggle">
+                                <a href="?page=person_list">
                                     <i class="menu-icon fa fa-caret-right"></i>
-
-                                    ข้อมูลทั่วไป
-                                    <b class="arrow fa fa-angle-down"></b>
+                                    ข้อมูลบุคลากร
                                 </a>
 
                                 <b class="arrow"></b>
-
-                                <ul class="submenu">
-                                    <li class="">
-                                        <a href="top-menu.html">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            ข้อมูลทั่วไป
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                        <a href="two-menu-1.html">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            เปลี่ยนชื่อ-สกุล
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                        <a href="two-menu-2.html">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            ประวัติการทำงาน
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                        <a href="mobile-menu-1.html">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            ประวัติครอบครัว
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                        <a href="mobile-menu-2.html">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            ความสามารถพิเศษ
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                </ul>
                             </li>
 
                             <li class="">
@@ -1030,7 +985,15 @@ $Db->access();
         <script src="includes/bootstrap-datepicker-1.6.4/js/bootstrap-datepicker.min.js"></script>
         <script src="includes/bootstrap-datepicker-1.6.4/js/bootstrap-datepicker-th.min.js"></script>
         <script src="includes/bootstrap-datepicker-1.6.4/locales/bootstrap-datepicker.th.min.js"></script>
-     
+      <!-- page specific plugin scripts -->
+		<script src="assets/js/jquery.dataTables.min.js"></script>
+		<script src="assets/js/jquery.dataTables.bootstrap.min.js"></script>
+		<script src="assets/js/dataTables.buttons.min.js"></script>
+		<script src="assets/js/buttons.flash.min.js"></script>
+		<script src="assets/js/buttons.html5.min.js"></script>
+		<script src="assets/js/buttons.print.min.js"></script>
+		<script src="assets/js/buttons.colVis.min.js"></script>
+		<script src="assets/js/dataTables.select.min.js"></script>
         <!-- page specific plugin scripts -->
 
         <!--[if lte IE 8]>
