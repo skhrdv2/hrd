@@ -1,5 +1,8 @@
-.*
-!.keepdir
+
+.gitattributes
 lib/host.php
+<<<<<<< HEAD
 lib/host.php
-lib/host.php
+=======
+*.php
+>>>>>>> 35a805fe85a01547ad8929061c8639128f86f037

@@ -24,6 +24,7 @@ $Db = new MySqlConn;
         <link rel="stylesheet" href="assets/css/fonts.googleapis.com.css" />
         <link rel="stylesheet" href="assets/css/ace.min.css" />
         <link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+        <link rel="stylesheet" href="includes/sweet-alert/sweet-alert.css">
     </head>
 
     <body class="login-layout">
@@ -58,7 +59,7 @@ $Db = new MySqlConn;
 
                                             <div class="space-6"></div>
 
-                                            <form name='LoginFrm' action=" " method="post">
+                                            <form name='LoginFrm' action="" method="post">
                                                 <fieldset>
                                                     <label class="block clearfix">
                                                         <span class="block input-icon input-icon-right">
@@ -274,7 +275,7 @@ $Db = new MySqlConn;
 
         <!--[if !IE]> -->
         <script src="assets/js/jquery-2.1.4.min.js"></script>
-
+        <script src="includes/sweet-alert/sweet-alert.js"></script>
         <!-- <![endif]-->
 
         <!--[if IE]>
@@ -331,7 +332,7 @@ $Db = new MySqlConn;
 <?php if(isset($_POST['LoginBtn'])){
     
     $num = $Db->num_rows("SELECT * FROM hrd_person WHERE username='".$_POST['username']."' AND password ='".md5($_POST['password'])." '");
-    if ($num > 0) {
+    
         if ($num > 0) {
           
             $sql = $Db->query("SELECT *,concat('คุณ',h.fname,' ',h.lname) as fullname  FROM hrd_person h 
@@ -346,18 +347,21 @@ $Db = new MySqlConn;
                 $_SESSION['fullname'] = $row['fullname'];
                 $_SESSION['department_id'] = $row['department_id'];
                 $_SESSION['department_name'] = $row['department_name'];
-
-
-               
-             
             }
-         echo "<script> window.location.replace('index.php') </script>" ;
-          
+        echo "<script language='javascript'>";
+        echo "window.location.replace('index.php') </script>" ; 
         }
      else {
-        echo "dfdf";
-       // echo "<script> alert('ชื่อหรือรหัสผ่านไม่ถูกต้อง')</script>" ;
-       // echo "<script> window.location.replace('login.php') </script>" ;
+         
+        echo "<script language='javascript'>";
+        echo "swal({
+            type: 'error',
+            title: 'ผิดพลาด',
+            text: 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง!',
+            showConfirmButton: false,
+            timer:1500
+          });";
+        echo "</script>";
     } 
-    }
+    
  } ?>
